@@ -1,4 +1,5 @@
-import { fetchData } from "./modules/DataMiner.js";
+import { fetchData } from "./components/DataMiner.js";
+import { mainMenu } from "/components/Menu.js";
 
 (() => {
 
@@ -29,6 +30,7 @@ import { fetchData } from "./modules/DataMiner.js";
             },
 
         components: {
+            "menu": mainMenu
         }
     })
     .$mount("#app"); // also connects Vue to your wrapper in HTML
