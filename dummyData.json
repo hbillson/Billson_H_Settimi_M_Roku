@@ -1,9 +1,269 @@
-    [
-        [{"Parents":
-           [{"Movies":
-                [{"50s": 
-                    {"1":{"title": "Rebel Without A Cause", "genre": "insert genre", "year": "insert year"}},
-                    {"2":{"title": "The Seven Year Itch", "genre": "insert genre", "year": "insert year"}}
-                ],
-        {"Kids":"this is the Kids site"}
-    ]
+[{
+    "Parents":{
+        "id": "1",
+        "title": "PARENTS",
+        "Movies":{
+            "50s":{
+                "1":{
+                    "title": "50s movie 1", "genre": "insert genre", "year": "insert year"
+                    },
+                "2":{
+                        "title": "50s movie 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "60s":{
+                "1":{
+                    "title": "60s movie 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "60s movie 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "70s":{
+                "1":{
+                    "title": "70s movie 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "70s movie 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "80s":{
+                "1":{
+                    "title": "80s movie 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "80s movie 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "90s":{
+                "1":{
+                    "title": "90s movie 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "90s movie 2", "genre": "insert genre", "year": "insert year"
+                    }
+                }
+            },
+
+        "TV":{
+            "50s":{
+                "1":{
+                    "title": "50s TV 1", "genre": "insert genre", "year": "insert year"
+                    },
+                "2":{
+                        "title": "50s TV 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "60s":{
+                "1":{
+                    "title": "60s TV 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "60s TV 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "70s":{
+                "1":{
+                    "title": "70s TV 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "70s TV 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "80s":{
+                "1":{
+                    "title": "80s TV 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "80s TV 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "90s":{
+                "1":{
+                    "title": "90s TV 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "90s TV 2", "genre": "insert genre", "year": "insert year"
+                    }
+                }
+            },
+
+        "Music":{
+            "50s":{
+                "1":{
+                    "title": "50s music 1", "genre": "insert genre", "year": "insert year"
+                    },
+                "2":{
+                        "title": "50s music 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "60s":{
+                "1":{
+                    "title": "60s music 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "60s music 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "70s":{
+                "1":{
+                    "title": "70s music 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "70s music 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "80s":{
+                "1":{
+                    "title": "80s music 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "80s music 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "90s":{
+                "1":{
+                    "title": "90s music 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "90s music 2", "genre": "insert genre", "year": "insert year"
+                    }
+                }
+            }
+        
+        },
+
+    "Kids":{ 
+        "id": "2",
+        "title": "KIDS",
+        "Movies":{
+            "50s":{
+                "1":{
+                    "title": "kids 50s movie 1", "genre": "insert genre", "year": "insert year"
+                    },
+                "2":{
+                        "title": "kids 50s movie 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "60s":{
+                "1":{
+                    "title": "kids 60s movie 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 60s movie 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "70s":{
+                "1":{
+                    "title": "kids 70s movie 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 70s movie 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "80s":{
+                "1":{
+                    "title": "kids 80s movie 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 80s movie 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "90s":{
+                "1":{
+                    "title": "kids 90s movie 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 90s movie 2", "genre": "insert genre", "year": "insert year"
+                    }
+                }
+            },
+
+        "TV":{
+            "50s":{
+                "1":{
+                    "title": "kids 50s TV 1", "genre": "insert genre", "year": "insert year"
+                    },
+                "2":{
+                        "title": "kids 50s TV 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "60s":{
+                "1":{
+                    "title": "kids 60s TV 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 60s TV 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "70s":{
+                "1":{
+                    "title": "kids 70s TV 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 70s TV 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "80s":{
+                "1":{
+                    "title": "kids 80s TV 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 80s TV 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "90s":{
+                "1":{
+                    "title": "kids 90s TV 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 90s TV 2", "genre": "insert genre", "year": "insert year"
+                    }
+                }
+            },
+
+        "Music":{
+            "50s":{
+                "1":{
+                    "title": "kids 50s music 1", "genre": "insert genre", "year": "insert year"
+                    },
+                "2":{
+                        "title": "kids 50s music 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "60s":{
+                "1":{
+                    "title": "kids 60s music 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 60s music 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "70s":{
+                "1":{
+                    "title": "kids 70s music 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 70s music 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "80s":{
+                "1":{
+                    "title": "kids 80s music 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 80s music 2", "genre": "insert genre", "year": "insert year"
+                    }
+                },
+            "90s":{
+                "1":{
+                    "title": "kids 90s music 1", "genre": "insert genre", "year": "insert year"
+                    },
+                    "2":{
+                        "title": "kids 90s music 2", "genre": "insert genre", "year": "insert year"
+                    }
+                }
+            }
+        
+        }
+}]

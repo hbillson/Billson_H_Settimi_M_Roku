@@ -1,0 +1,19 @@
+.sidebar {
+    display:block;
+    position:fixed;
+    left:-50vw;
+    height:100vh;
+    width:50vw;
+    background-color:whitesmoke;
+    transition: 0.5s ease-in-out;
+
+    .sidebar_button {
+       position:fixed;
+       width: 20px;
+       font-size:2vw;
+       left:2vw;
+       top:50%;
+       cursor:pointer;
+    }
+}
+
