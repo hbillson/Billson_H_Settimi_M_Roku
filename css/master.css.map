@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "mappings": "AMAA,AAAA,kBAAkB,CAAC;EACf,OAAO,EAAC,IAAI;EACZ,cAAc,EAAC,GAAG;EAClB,MAAM,EAAC,KAAK;EACZ,KAAK,EAAC,KAAK;CACd;;AACD,AAAA,YAAY,CAAC;EACT,MAAM,EAAC,IAAI;EACX,KAAK,EAAC,GAAG;EACT,gBAAgB,EAAC,IAAI;CACxB;;AAED,AAAA,YAAY,AAAA,YAAY,CAAC;EACrB,gBAAgB,EAAC,SAAS;CAC7B",
+    "sources": [
+        "../scss/master.scss",
+        "../scss/modules/_mediaqueries.scss",
+        "../scss/modules/_vars.scss",
+        "../scss/modules/_mixins.scss",
+        "../scss/modules/_main.scss",
+        "../scss/modules/_nav.scss",
+        "../scss/modules/_home.scss",
+        "../scss/modules/_footer.scss"
+    ],
+    "names": [],
+    "file": "master.css"
+}

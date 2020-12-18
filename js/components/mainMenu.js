@@ -1,31 +1,16 @@
-import Welcome from "./Welcome.js";
-
 export default {
     name: "mainMenu",
 
+<<<<<<< Updated upstream
     props: ["work", "mediatype"],
+=======
+    props: ["work"],
+>>>>>>> Stashed changes
 
     template: 
-    `<div>
-        <!-- Welcome component -->
-    </div>`,
-
-    created: function () {
-    },
-
-    computed: {
-        currentComponent: function() {
-        }
-    },
-
-    components: {
-        Welcome 
-    },
-
+    ` `,
+    
     methods: {
-        closelb() {
 
-        }
-    }
-
-    }
+    }    
+}

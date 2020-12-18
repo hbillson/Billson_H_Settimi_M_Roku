@@ -16,16 +16,35 @@
 <main id="app">
     <section id="home">
         <div class="topbar">
+
+            <!-- the top, where we see the logo settings & profile buttons -->
             <img class="logo" src="" alt="Roku Logo">
             <a class="settings" href="">[settings icon]</a>
             <a class="profile" href="">[profile icon]</a>
         </div>
+
+        <!-- for the sidebar with the navigation (does footer code go here or do we change
+        the footer css code to make it fit in the sidebar (while keeping it at the bottom
+        of the body tag?)-->
         <div class="sidebar">
-            <!-- SIDEBAR CODE HERE -->
         </div>
-        <!--COMPONENT CODE FOR MAIN MENU HERE-->
+
+        <!-- the main homepage view, with clickable containers on each side -->
+        <!-- just built with plain HTML and SCSS currently for styling purposes -->
+        <h2 class="home_title">WHO'S WATCHING?</h2>
+        <div class="options_container">
+           <div class="options_box">
+               <h3 class="options_title">PARENTS</h3>
+           </div>
+           <div  class="options_box">
+            <h3 class="options_title">KIDS</h3>
+        </div>
+       </div>
     </section>
 </main>
+    <footer>
+
+    </footer>
     <script type="module" src="js/main.js"></script>
 </body>
 
