@@ -1,13 +1,13 @@
-import Welcome from "./Welcome.js";
+import mediaMenu from "./mediaMenu.js";
 
 export default {
-    name: "mainMenu",
+    name: "Decades",
 
-    props: ["menu", "mediatype"],
+    props: ["work", "mediatype"],
 
     template: 
     `<div>
-        <!-- Welcome component -->
+        <!-- mediaMenu component -->
     </div>`,
 
     created: function () {
@@ -19,7 +19,7 @@ export default {
     },
 
     components: {
-        Welcome 
+        mediaMenu
     },
 
     methods: {

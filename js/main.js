@@ -1,5 +1,5 @@
 import { fetchData } from "./components/DataMiner.js";
-import { mainMenu } from "/components/Menu.js";
+import { mainMenu } from "./components/mainMenu.js";
 
 (() => {
 
@@ -18,6 +18,7 @@ import { mainMenu } from "/components/Menu.js";
                 .then(data => {
                     this.table_name = data;
                 })
+                console.log("Loaded data!");
 
         },
 

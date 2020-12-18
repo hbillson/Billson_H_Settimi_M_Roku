@@ -1,0 +1,17 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/master.scss",
+        "../scss/modules/_mediaqueries.scss",
+        "../scss/modules/_vars.scss",
+        "../scss/modules/_mixins.scss",
+        "../scss/modules/_main.scss",
+        "../scss/modules/_nav.scss",
+        "../scss/modules/_parents.scss",
+        "../scss/modules/_kids.scss",
+        "../scss/modules/_footer.scss"
+    ],
+    "names": [],
+    "file": "master.css"
+}

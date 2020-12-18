@@ -1,15 +1,16 @@
 let errorCodes = {
-    404: "Not Found! Oh noes! Check your URL",
-    500: "Ya sorry can't help you... the server is just borked",
-    403: "You shall not pass! Unless you have creds. Then sure go ahead.",
-    503: "Service is unavailable! The servers are all having a coffee break."
+    404: "Seems like this link is bogus. Check your URL and try again!",
+    500: "Looks like the server flipped it's wig. Try again later.",
+    403: "Don't snap your cap... but you need the right credentials to continue.",
+    503: "The servers are all Joed... come back later."
 }
 
 async function fetchData(sourceURL) {
+    debugger;
         // ask for a resource, and then do something with it when it resolves
     let resource = await fetch(sourceURL).then(response => {
         if (response.status !== 200) {
-            throw new Error(`Danger Will Robinson! Error ${response.status}: ${errorCodes[response.status]}`);
+            throw new Error(`Ain't that a bite! Error ${response.status}: ${errorCodes[response.status]}`);
         } 
         
         return response;           
@@ -26,7 +27,7 @@ async function fetchData(sourceURL) {
 async function postData(sourceURL) {
     // use fetch or Axios to post to a database here
 
-    return "You are using the postData API endpoint";
+    return "this is the postData endpoint!";
 }
 
 
