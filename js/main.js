@@ -37,22 +37,12 @@ import { toggleNav } from "./siteFunctions.js";
                 let thisVersion = document.getElementById(version.id);
                 if (version.id == "1") {
                     let otherVersion = document.getElementById("2");
-                    if (thisVersion.classList.contains("full")) {
-                        thisVersion.classList.remove("full");
-                        otherVersion.classList.remove("hidden");
-                        return;
-                    }  
                     otherVersion.classList.add("hidden");
                     thisVersion.classList.add("full");
                     // add trigger for opening a "mediaMenu" showing the array under "parents"
                 }
                 else if (version.id == "2") {
                     let otherVersion = document.getElementById("1");
-                    if (thisVersion.classList.contains("full")) {
-                        thisVersion.classList.remove("full");
-                        otherVersion.classList.remove("hidden");
-                        return;
-                    }
                     otherVersion.classList.add("hidden");
                     thisVersion.classList.add("full");
                     // add trigger for opening a "mediaMenu" showing the array under "kids"
