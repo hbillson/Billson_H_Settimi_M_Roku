@@ -7,4 +7,35 @@ body {
     bottom:0;
     width:100vw;
     height:100vh;
+    font-family:$main-font;
+    font-size:$main-font-size;
+    color:$black;
+}
+h1 {
+    font-size: $title-font-size;
+    font-family: $title-font;
+}
+
+h2 {
+    font-size: $subtitle-font-size;
+    font-family: $title-font;
+}
+
+.fa {
+    font-size:$icon-font-size!important;
+    color:$black!important;
+}
+
+/* font families */
+
+@font-face {
+    font-family: 'MOON GET!';
+    src: url('../fonts/moon_get-Heavy.eot');
+    src: url('../fonts/moon_get-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/moon_get-Heavy.woff2') format('woff2'),
+        url('../fonts/moon_get-Heavy.woff') format('woff'),
+        url('../fonts/moon_get-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }

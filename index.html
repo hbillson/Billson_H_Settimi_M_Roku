@@ -7,6 +7,7 @@
     <title>Roku Flashback</title>
 
     <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
 </head>
@@ -35,19 +36,21 @@
         <div class="topbar">
 
             <!-- the top, where we see the logo settings & profile buttons -->
-            <img class="logo" src="" alt="Roku Logo">
-            <a class="settings" href="">[settings icon]</a>
-            <a class="profile" href="">[profile icon]</a>
+            <img class="logo" src="images/logo.png" alt="Roku Logo">
+            <div class="icons_container">
+                <a class="settings" href=""><i class="fa fa-gear"></i></a>
+                <a class="profile" href=""><i class="fa fa-user"></i></a>
+            </div>
+            
         </div>
 
         <!-- for the sidebar with the navigation (does footer code go here or do we change
         the footer css code to make it fit in the sidebar (while keeping it at the bottom
         of the body tag?)-->
-
-
+        
         <!-- the main homepage view, with clickable containers on each side -->
         <!-- just built with plain HTML and SCSS currently for styling purposes -->
-        <h2 class="home_title">WHO'S WATCHING?</h2>
+        <h1 class="home_title">WHO'S WATCHING?</h2>
         <div class="options_container">
         <div class="dummy_box">
             <version v-for="version in versions" :version="version" :key="version.id" @setversion="setVersion"></version>
