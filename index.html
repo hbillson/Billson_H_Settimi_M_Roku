@@ -51,19 +51,7 @@
         <!-- the main homepage view, with clickable containers on each side -->
         <!-- just built with plain HTML and SCSS currently for styling purposes -->
         <h1 class="home_title">WHO'S WATCHING?</h2>
-        <div class="options_container">
-        <div class="dummy_box">
-            <version v-for="version in versions" :version="version" :key="version.id" @setversion="setVersion"></version>
-        </div>
-<!--
-           <div class="options_box">
-               <h3 class="options_title">PARENTS</h3>
-           </div>
-           <div  class="options_box">
-            <h3 class="options_title">KIDS</h3>
-        </div>
--->
-       </div>
+           <component :is="setView" :parent-data="thisData" @setversion="setVersion" @setmediatype="setMediatype" @setdecade="setDecade"></component>
     </section>
 </main>
     <footer>

@@ -1,12 +1,34 @@
-/* TO BE UPDATED */ 
+export default {
+    name: "MediaTypes",
 
-/* import VideoPlayer from "./components/VideoPlayer.js"; */
-/* import VideoPlayer from "./components/AudioPlayer.js"; */
+    props: ["media-select"],
 
-/* this box shows a list of media items depending on which type 
-& decade were specified by the user */
+    data() {
+        return {
+        };
+    },
 
-/* selecting one will change the view again to a media player subcomponent,
-either video or audio */
+    template: 
+    `<div class="options_container">
+        <div class="mediatype" id="Movies" @click="addFilter"><h2 class="options_title">Movies</h2></div>
+        <div class="mediatype" id="TV" @click="addFilter"><h2 class="options_title">TV</h2></div>
+        <div class="mediatype" id="Music" @click="addFilter"><h2 class="options_title">Music</h2></div>
+    </div>`,
 
-/* SUB-COMPONENT NAME: either VideoPlayer.js or AudioPlayer.js */
+    computed: {
+        currentComponent: function() {
+        }
+    },
+
+    components: {
+
+    },
+
+    methods: {
+        addFilter(event) {
+            var thisBox = event.target.id;
+            this.$emit("setmediatype", thisBox);
+         }
+    }
+
+}
