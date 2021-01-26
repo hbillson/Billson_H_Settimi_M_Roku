@@ -1,7 +1,10 @@
 import { fetchData } from "./components/DataMiner.js";
-//import MediaTypes from "./components/MediaTypes.js";
-import Home from "./components/Home.js";
+import MainMenu from "./components/Home.js";
 import { toggleNav } from "./siteFunctions.js";
+import MediaType from "./components/MediaSelect.js";
+import Decades from "./components/DecadeSelect.js";
+import Items from "./components/ItemSelect.js";
+
 (() => {
 
 
@@ -10,11 +13,19 @@ import { toggleNav } from "./siteFunctions.js";
         //el: "#app",
 
         data: {
-            versions: []
+            versions: [],
+            currentVersion: {},
+            isVisible: "false",
+            currrentMedia: {},
+            currentView: {},
+            newView: "mainmenu",
+            currentDecade: {},
+            thisData: []
          },
 
-            mounted: function() {            
+            mounted: function() {   
                 let navButton = document.querySelector(".sidebar_button");
+
             console.log("Vue is mounted, trying a fetch for the initial data");
 
             fetchData("./dummyData.json")
@@ -25,33 +36,46 @@ import { toggleNav } from "./siteFunctions.js";
             navButton.addEventListener("click", toggleNav);
         },
 
-        updated: function() {
+        computed: {
+            setView: function() {
+                this.currentView = this.newView;
+                return this.currentView;
+            }
+        },
 
+        updated: function() {
         },
 
         methods: {
 
             // function that changes what's in the main page's box based on which side you click
             setVersion(version) {
-                debugger;
-                let thisVersion = document.getElementById(version.id);
-                if (version.id == "1") {
-                    let otherVersion = document.getElementById("2");
-                    otherVersion.classList.add("hidden");
-                    thisVersion.classList.add("full");
-                    // add trigger for opening a "mediaMenu" showing the array under "parents"
-                }
-                else if (version.id == "2") {
-                    let otherVersion = document.getElementById("1");
-                    otherVersion.classList.add("hidden");
-                    thisVersion.classList.add("full");
-                    // add trigger for opening a "mediaMenu" showing the array under "kids"
-                }
+                this.currentVersion = version;
+                document.querySelector(".home_title").style.display = "none";
+                this.newView = "mediatype-select";
+
+                this.thisData.push(this.currentVersion);
+            },
+
+            setMediatype(mediatype) {
+                this.currentMediatype = mediatype;
+                this.newView = "decade-select";
+                this.thisData.push(this.currentMediatype);
+            },
+
+            setDecade(decade) {
+                this.currentDecade = decade;
+                this.newView = "item-select";
+                this.thisData.push(this.currentDecade);
             }
+
             },
 
         components: {
-            "version": Home
+            "mainmenu": MainMenu,
+            "mediatype-select": MediaType,
+            "decade-select": Decades,
+            "item-select": Items
         }
     })
     .$mount("#app"); // also connects Vue to your wrapper in HTML
