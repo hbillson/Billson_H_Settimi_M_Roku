@@ -1,14 +1,26 @@
 
-function toggleNav() {
-    debugger;
-    let sidebar = document.querySelector(".sidebar");
-    if (sidebar.classList.contains("open")) {
-        sidebar.style.left = "-50vw";
-        sidebar.classList.remove("open");
-    } else if (!sidebar.classList.contains("open")) {
-        sidebar.style.left = "0";
-        sidebar.classList.add("open");
-    }
+function startSpin(event) {
+    event.target.classList.add("fa-spin");
 }
 
-export { toggleNav } 
+function stopSpin(event) {
+    debugger;
+    event.target.classList.remove("fa-spin");
+}
+
+
+function startFloat(event) {
+    //event.target.classList.add("faa-float");
+    event.target.classList.add("animated");
+
+}
+
+function stopFloat(event) {
+    //event.target.classList.remove("faa-float");
+    event.target.classList.remove("animated");
+}
+
+export { startSpin } 
+export { stopSpin }
+export { startFloat } 
+export { stopFloat } 

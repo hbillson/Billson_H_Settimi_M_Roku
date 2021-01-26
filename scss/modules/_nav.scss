@@ -1,11 +1,11 @@
 .sidebar {
-    display:block;
-    position:fixed;
+    position:absolute;
     left:-50vw;
     height:100vh;
     width:50vw;
-    background-color:whitesmoke;
+    background-color:$red;
     transition: 0.5s ease-in-out;
+    z-index:99;
 
     .sidebar_button {
        position:fixed;
@@ -14,6 +14,71 @@
        left:2vw;
        top:50%;
        cursor:pointer;
+       z-index:100;
+    }
+
+    .sidebar_contents {
+        width:50vw;
+        height:100vh;
+        left:-50vw;
+        text-align:center;
+        position:fixed;
+        transition: 0.5s ease-in-out;
+
+        .sidebar_wrapper {
+            height:100%;
+            padding-top:30%;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            align-content:center;
+
+            .sidebar_links {
+                margin-bottom:8%;
+                font-weight:700;
+                width:25vw;
+                display: flex;
+                flex-direction:column;
+                justify-content:space-between;
+                height:40%;
+
+                .sidebar_link {
+                    font-family:$title-font;
+                    font-size:3vw;
+                    text-align:left;
+                }
+            }
+
+            .sidebar_footer {
+                height:20%;
+                width:75%;
+                display:flex;
+                flex-direction:column;
+                justify-content:flex-end;
+
+                .socials {
+                    display:flex;
+                    flex-direction:row;
+                    justify-items:center;
+                    align-content:center;
+                    margin-bottom:6%;
+
+                    .social_link {
+                        width:16.67%;
+                        font-size:2vw;
+                        cursor:pointer;
+                    }
+
+                }
+                
+                .copyright {
+                    font-family:$main-font;
+                    font-size:0.8vw;
+                    font-weight:300;
+                }
+            }
+        }
+        
     }
 }
 
