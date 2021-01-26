@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome-animation.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
 </head>
@@ -15,22 +16,9 @@
 <body>
 
 <main id="app">
-    <div class="sidebar">
-        <div class="sidebar_button">☰</div>
-        <div class="sidebar_contents">
-            <a class="sidebar_link">HOME</a>
-            <a class="sidebar_link">PROFILE</a>
-            <a class="sidebar_link">MOVIES</a>
-            <a class="sidebar_link">TV</a>
-            <a class="sidebar_link">MUSIC</a>
-
-            <div class="sidebar_footer">
-                <div class="socials">
-                    [social media icons go here]
-                </div>
-                <div class="copyright">Limited legal copyright</div>
-            </div>
-        </div>
+        <sidebar></sidebar>
+            <!--sidebar component-->
+     
     </div>
     <section id="home">
         <div class="topbar">
@@ -38,8 +26,8 @@
             <!-- the top, where we see the logo settings & profile buttons -->
             <img class="logo" src="images/logo.png" alt="Roku Logo">
             <div class="icons_container">
-                <a class="settings" href=""><i class="fa fa-gear"></i></a>
-                <a class="profile" href=""><i class="fa fa-user"></i></a>
+                <a class="settings-icon"><i @click="toggleSettings" class="fa fa-gear"></i></a>
+                <a class="profile-icon"><i class="fa fa-user faa-float"></i></a>
             </div>
             
         </div>

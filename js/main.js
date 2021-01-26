@@ -1,9 +1,13 @@
 import { fetchData } from "./components/DataMiner.js";
 import MainMenu from "./components/Home.js";
-import { toggleNav } from "./siteFunctions.js";
+import { startSpin } from "./siteFunctions.js";
+import { stopSpin } from "./siteFunctions.js";
+import { startFloat } from "./siteFunctions.js";
+import { stopFloat } from "./siteFunctions.js";
 import MediaType from "./components/MediaSelect.js";
 import Decades from "./components/DecadeSelect.js";
 import Items from "./components/ItemSelect.js";
+import Sidebar from "./components/Sidebar.js";
 
 (() => {
 
@@ -24,8 +28,6 @@ import Items from "./components/ItemSelect.js";
          },
 
             mounted: function() {   
-                let navButton = document.querySelector(".sidebar_button");
-
             console.log("Vue is mounted, trying a fetch for the initial data");
 
             fetchData("./dummyData.json")
@@ -33,21 +35,26 @@ import Items from "./components/ItemSelect.js";
                     this.versions = data;
                 })
             
-            navButton.addEventListener("click", toggleNav);
+            let settingsIcon = document.querySelector(".fa-gear");
+            let profIcon = document.querySelector(".fa-user");
+            settingsIcon.addEventListener("mouseover", startSpin);
+            settingsIcon.addEventListener("mouseleave", stopSpin);
+            profIcon.addEventListener("mouseover", startFloat);
+            profIcon.addEventListener("mouseleave", stopFloat);
+
         },
 
         computed: {
             setView: function() {
                 this.currentView = this.newView;
                 return this.currentView;
-            }
+            },
         },
 
         updated: function() {
         },
 
         methods: {
-
             // function that changes what's in the main page's box based on which side you click
             setVersion(version) {
                 this.currentVersion = version;
@@ -67,6 +74,16 @@ import Items from "./components/ItemSelect.js";
                 this.currentDecade = decade;
                 this.newView = "item-select";
                 this.thisData.push(this.currentDecade);
+            },
+
+            toggleSettings() {
+                console.log("opened settings page");
+                this.newView = "settings";
+            },
+
+            toggleProfile() {
+                console.log("opened profile page");
+                this.newView = "profile";
             }
 
             },
@@ -75,7 +92,10 @@ import Items from "./components/ItemSelect.js";
             "mainmenu": MainMenu,
             "mediatype-select": MediaType,
             "decade-select": Decades,
-            "item-select": Items
+            "item-select": Items,
+            "sidebar": Sidebar,
+            "settings": Settings,
+            "profile": Profile
         }
     })
     .$mount("#app"); // also connects Vue to your wrapper in HTML
