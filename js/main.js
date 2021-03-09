@@ -8,6 +8,8 @@ import MediaType from "./components/MediaSelect.js";
 import Decades from "./components/DecadeSelect.js";
 import Items from "./components/ItemSelect.js";
 import Sidebar from "./components/Sidebar.js";
+import Settings from "./components/Settings.js";
+import Profile from "./components/Profile.js";
 
 (() => {
 
@@ -24,7 +26,8 @@ import Sidebar from "./components/Sidebar.js";
             currentView: {},
             newView: "mainmenu",
             currentDecade: {},
-            thisData: []
+            thisData: [],
+            sidebarLinks: []
          },
 
             mounted: function() {   
@@ -34,7 +37,7 @@ import Sidebar from "./components/Sidebar.js";
                 .then(data => {
                     this.versions = data;
                 })
-            
+
             let settingsIcon = document.querySelector(".fa-gear");
             let profIcon = document.querySelector(".fa-user");
             settingsIcon.addEventListener("mouseover", startSpin);
@@ -77,14 +80,28 @@ import Sidebar from "./components/Sidebar.js";
             },
 
             toggleSettings() {
-                console.log("opened settings page");
+                document.querySelector(".home_title").style.display = "none";
                 this.newView = "settings";
             },
 
             toggleProfile() {
-                console.log("opened profile page");
+                document.querySelector(".home_title").style.display = "none";
                 this.newView = "profile";
+            },
+
+            updateView(event) {
+                debugger;
+                let view = event.target.name;
+                this.newView = view;
+
+                if(this.newView == "mainmenu") {
+                    document.querySelector(".home_title").style.display = "block";
+                    this.thisData.splice(0, this.thisData.length);
+                } else {
+                    document.querySelector(".home_title").style.display = "none";
+                }
             }
+
 
             },
 

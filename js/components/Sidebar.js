@@ -1,11 +1,10 @@
 export default {
     name: "Sidebar",
 
-    props: ["sidebar"],
+    props: [],
 
     data() {
         return {
-            isClicked: false
         };
     },
 
@@ -17,11 +16,11 @@ export default {
         <div class="sidebar_contents">
             <div class="sidebar_wrapper">
                 <div class="sidebar_links">
-                    <a class="sidebar_link">HOME</a>
-                    <a class="sidebar_link">PROFILE</a>
-                    <a class="sidebar_link">MOVIES</a>
-                    <a class="sidebar_link">TV</a>
-                    <a class="sidebar_link">MUSIC</a>
+                    <a @click="clickedLink" name="mainmenu" class="sidebar_link">HOME</a>
+                    <a @click="clickedLink" name="profile" class="sidebar_link">PROFILE</a>
+                    <a @click="clickedLink" name="decade-select" class="sidebar_link">MOVIES</a>
+                    <a @click="clickedLink" name="decade-select" class="sidebar_link">TV</a>
+                    <a @click="clickedLink" name="decade-select" class="sidebar_link">MUSIC</a>
                 </div>
                 <div class="sidebar_footer">
                     <div class="socials">
@@ -38,11 +37,10 @@ export default {
             </div>
         </div>
     </div>
+    </div>
     `,
 
     computed: {
-        currentComponent: function() {
-        }
     },
 
     components: {
@@ -51,8 +49,6 @@ export default {
 
     methods: {
         slideOut(event) {
-            console.log("clicked sidebar");
-            debugger;
             let sidebar = document.querySelector(".sidebar");
             let sidebarContents = document.querySelector(".sidebar_contents");
             if (sidebar.classList.contains("open")) {
@@ -67,6 +63,16 @@ export default {
         },
         emphasizeIcon(event) {
             event.target.classList.add("fa-4x");
+        },
+        
+        clickedLink(event) {
+            debugger;
+            let sidebar = document.querySelector(".sidebar");
+            let sidebarContents = document.querySelector(".sidebar_contents");
+            sidebarContents.style.left = "-50vw";
+            sidebar.style.left = "-50vw";
+            sidebar.classList.remove("open");
+            this.$emit("update-view", event);
         }
     }
 
