@@ -6153,6 +6153,27 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
+.menu_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ff2830;
+}
+
+.menu_container .menu_title {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  height: auto;
+  margin-top: 50vh;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6213,6 +6234,7 @@ h2 {
   height: 100%;
   padding-left: 1vw;
   padding-top: 1vw;
+  cursor: pointer;
 }
 
 .topbar .icons_container {
@@ -6297,6 +6319,7 @@ h2 {
   font-family: "LEMON MILK", sans-serif;
   font-size: 3vw;
   text-align: left;
+  cursor: pointer;
 }
 
 .sidebar .sidebar_contents .sidebar_wrapper .sidebar_footer {
@@ -6381,7 +6404,7 @@ h2 {
   height: 100%;
   width: 20%;
   display: block;
-  background-color: #000;
+  background-color: #ad54cc;
 }
 
 .mediatype {

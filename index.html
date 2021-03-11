@@ -16,7 +16,7 @@
 <body>
 
 <main id="app">
-        <sidebar></sidebar>
+        <sidebar @update-view="updateView"></sidebar>
             <!--sidebar component-->
      
     </div>
@@ -24,10 +24,12 @@
         <div class="topbar">
 
             <!-- the top, where we see the logo settings & profile buttons -->
-            <img class="logo" src="images/logo.png" alt="Roku Logo">
+            <div name="mainmenu" class="logo">
+                <img @click="updateView" name="mainmenu" class="logo" src="images/logo.png" alt="Roku Logo">
+            </div>
             <div class="icons_container">
                 <a class="settings-icon"><i @click="toggleSettings" class="fa fa-gear"></i></a>
-                <a class="profile-icon"><i class="fa fa-user faa-float"></i></a>
+                <a class="profile-icon"><i @click="toggleProfile" class="fa fa-user faa-float"></i></a>
             </div>
             
         </div>
