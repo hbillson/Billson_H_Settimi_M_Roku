@@ -1,4 +1,3 @@
-import { fetchData } from "./components/DataMiner.js";
 import MainMenu from "./components/Home.js";
 import { startSpin } from "./siteFunctions.js";
 import { stopSpin } from "./siteFunctions.js";
@@ -10,12 +9,25 @@ import Items from "./components/ItemSelect.js";
 import Sidebar from "./components/Sidebar.js";
 import Settings from "./components/Settings.js";
 import Profile from "./components/Profile.js";
+import LoginComponent from "./components/LoginComponent.js";
 
 (() => {
 
 
-    let vue_info = new Vue({
+    Vue.use(VueRouter);
 
+
+
+    let router = new VueRouter({
+
+        // set routes
+        routes: [
+            { path: '/', redirect: { name: "login" } },
+            { path: '/login', name: "login", component: LoginComponent },
+            { path: '/mainmenu', name: "users", component: MainMenu }
+        ]
+    });
+    const vm = new Vue({
         //el: "#app",
 
         data: {
@@ -24,19 +36,28 @@ import Profile from "./components/Profile.js";
             isVisible: "false",
             currrentMedia: {},
             currentView: {},
-            newView: "mainmenu",
+            newView: "login",
             currentDecade: {},
             thisData: [],
-            sidebarLinks: []
+            sidebarLinks: [],
+            authenticated: false,
+            administrator: false,
+
+            mockAccount: {
+            username: "user",
+            password: "password"
+      },
+
+      user: [],
          },
 
             mounted: function() {   
             console.log("Vue is mounted, trying a fetch for the initial data");
 
-            fetchData("./dummyData.json")
-                .then(data => {
-                    this.versions = data;
-                })
+           // fetchData("./dummyData.json")
+           //     .then(data => {
+          //          this.versions = data;
+           //     })
 
             let settingsIcon = document.querySelector(".fa-gear");
             let profIcon = document.querySelector(".fa-user");
@@ -44,7 +65,6 @@ import Profile from "./components/Profile.js";
             settingsIcon.addEventListener("mouseleave", stopSpin);
             profIcon.addEventListener("mouseover", startFloat);
             profIcon.addEventListener("mouseleave", stopFloat);
-
         },
 
         computed: {
@@ -112,8 +132,23 @@ import Profile from "./components/Profile.js";
             "item-select": Items,
             "sidebar": Sidebar,
             "settings": Settings,
-            "profile": Profile
-        }
+            "profile": Profile,
+            "login": LoginComponent
+        },
+        router: router
     })
     .$mount("#app"); // also connects Vue to your wrapper in HTML
+
+    // add some router security here
+    router.beforeEach((to, from, next) => {
+        console.log('router guard fired');
+        // if the Vue authenticated property is set to false, then
+        // push the user back to the login screen (cuz they're not logged in)
+
+        if (vm.authenticated == false) {
+        next("/login");
+        } else {
+        next();
+        }
+    })
 })();
