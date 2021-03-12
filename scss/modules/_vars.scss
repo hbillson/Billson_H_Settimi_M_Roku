@@ -1,3 +1,5 @@
+/* colour variables */
+
 $purple: #ad54cc;
 $blue: #00c4fa;
 $yellow: #ffd800;
@@ -5,11 +7,24 @@ $red: #ff2830;
 $black: #0e1111;
 $white: #f9f9f9;
 
+/*font variables*/
 $main-font: 'HelveticaNeue', 'Helvetica', sans-serif;
 $title-font: 'LEMON MILK', sans-serif;
+$fa-font-path: "../fonts";
+
+/*mobile/default font sizes*/
 $main-font-size: 1.2vw;
 $title-font-size: 5vw;
 $subtitle-font-size:4vw;
-$icon-font-size:2vw;    
+$icon-font-size:2vw;   
 
-$fa-font-path: "../fonts";
+/*tablet font sizes*/
+
+/*desktop font sizes*/
+$desktop-main-font-size: 20px;
+$desktop-subtitle-font-size:40px;
+
+/*other variables*/
+$border-radius: 0.5vw;
+
+$transition: 0.3s 0s ease-in-out;

@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/font-awesome-animation.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
 </head>
 
@@ -40,7 +41,6 @@
         
         <!-- the main homepage view, with clickable containers on each side -->
         <!-- just built with plain HTML and SCSS currently for styling purposes -->
-        <h1 class="home_title">WHO'S WATCHING?</h2>
            <component :is="setView" :parent-data="thisData" @setversion="setVersion" @setmediatype="setMediatype" @setdecade="setDecade"></component>
     </section>
 </main>
