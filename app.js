@@ -1,16 +1,18 @@
 const express = require('express');
 const path = require('path');
-
 const app = express();
+const hbs = require('hbs');
 
-app.use(express.static("public"));
 
 const port = process.env.PORT || 5050;
 
-app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname, "index.html"));
-});
+app.set('views', path.join(__dirname, "views"));
+app.set('view engine', 'hbs');
 
-const server = app.listen(port, () => {
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/", require("./routes/index"));
+
+app.listen(port, () => {
 	console.log(`app is running on ${port}`);
-});
+})
