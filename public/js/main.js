@@ -36,20 +36,23 @@ import LoginComponent from "./components/LoginComponent.js";
             isVisible: "false",
             currrentMedia: {},
             currentView: {},
-            newView: "login",
+            newView: "mainmenu",
             currentDecade: {},
             thisData: [],
             sidebarLinks: [],
             authenticated: false,
             administrator: false,
-
+            max_year: "0",
+            min_year: "0",
             mockAccount: {
-            username: "user",
-            password: "password"
-      },
-
-      user: [],
+                username: "user",
+                password: "password"
+            },
+            user: []
          },
+
+            created: function() {
+            },
 
             mounted: function() {   
             console.log("Vue is mounted, trying a fetch for the initial data");
@@ -96,7 +99,26 @@ import LoginComponent from "./components/LoginComponent.js";
             setDecade(decade) {
                 this.currentDecade = decade;
                 this.newView = "item-select";
+
+                if (decade == "fifties") {
+                    this.max_year = "1959";
+                    this.min_year = "1950";
+                } else if (decade == "sixties") {
+                    this.max_year = "1969";
+                    this.min_year = "1960";
+                } else if (decade == "seventies") {
+                    this.max_year = "1969";
+                    this.min_year = "1960";
+                } else if (decade == "eighties") {
+                    this.max_year = "1969";
+                    this.min_year = "1960";
+                } else if (decade == "nineties") {
+                    this.max_year = "1969";
+                    this.min_year = "1960";
+                }
                 this.thisData.push(this.currentDecade);
+                this.thisData.push(this.max_year);
+                this.thisData.push(this.min_year);
             },
 
             toggleSettings() {
@@ -110,7 +132,6 @@ import LoginComponent from "./components/LoginComponent.js";
             },
 
             updateView(event) {
-                debugger;
                 let view = event.target.name;
                 this.newView = view;
 
@@ -120,6 +141,10 @@ import LoginComponent from "./components/LoginComponent.js";
                 } else {
                     document.querySelector(".home_title").style.display = "none";
                 }
+            },
+
+            loadMedia(list) {
+                this.thisData.push(list);
             }
 
 

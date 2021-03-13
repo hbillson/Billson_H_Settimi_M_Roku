@@ -41,7 +41,9 @@
         
         <!-- the main homepage view, with clickable containers on each side -->
         <!-- just built with plain HTML and SCSS currently for styling purposes -->
-           <component :is="setView" :parent-data="thisData" @setversion="setVersion" @setmediatype="setMediatype" @setdecade="setDecade"></component>
+           <component :is="setView" :parent-data="thisData" 
+                @setversion="setVersion" @setmediatype="setMediatype" 
+                @setdecade="setDecade" @loadmedia="loadMedia"></component>
     </section>
 </main>
     <footer>
