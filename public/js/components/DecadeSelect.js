@@ -37,8 +37,7 @@ export default {
         }
         this.version = this.version.toLowerCase();
         this.type = this.type.toLowerCase();
-        //let url = `/api/media/${this.version}/${this.type}`;
-        let url = `/api/media/kids/movies`;
+        let url = `/api/media/${this.version}/${this.type}/`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -55,7 +54,7 @@ export default {
         loadMedia(list) {
             this.medialist = list;
             console.log(this.medialist);
-            this.$emit("loadmedia", this.medialist);
+            //this.$emit("loadmedia", this.medialist);
         },
         addFilter(event) {
             var thisBox = event.target.id;
