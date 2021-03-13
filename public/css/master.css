@@ -6516,38 +6516,81 @@ h2 {
   line-height: 1.2;
 }
 
-.login_container .login_contents .form-container {
-  margin-top: 4vh;
-  width: 30%;
+.items_container {
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ad54cc;
+  overflow: auto;
 }
 
-.login_container .login_contents .form-container form {
+.items_container .banner {
+  position: absolute;
+  top: 0;
+  height: 45vh;
+  width: 100%;
+  background-color: black;
+}
+
+.items_container .banner .banner-title {
+  color: #ad54cc;
+  font-family: "LEMON MILK", sans-serif;
+}
+
+.items_container .gallery-container {
+  position: absolute;
+  top: 45vh;
+  overflow-y: auto;
+  width: 100%;
+  height: 55vh;
+}
+
+.items_container .gallery-container .l-arrow {
+  font-size: 40px;
+  cursor: pointer;
+  position: fixed;
+  top: 65%;
+}
+
+.items_container .gallery-container .r-arrow {
+  font-size: 40px;
+  cursor: pointer;
+  position: fixed;
+  top: 65%;
+  left: 96vw;
+}
+
+.items_container .gallery-container .gallery-head {
+  font-size: 40px;
+  font-family: "LEMON MILK", sans-serif;
+  text-align: left;
+  margin-left: 120px;
+}
+
+.items_container .gallery-container .gallery-row {
+  margin-left: 120px;
+  margin-right: 120px;
+  height: auto;
+  width: auto;
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-direction: row;
+  overflow-x: auto;
 }
 
-.login_container .login_contents .form-container form input {
-  padding: 10%;
-  padding-top: 4%;
-  padding-bottom: 4%;
-  border: none;
-  border-radius: 0.5vw;
-  margin-bottom: 2%;
-  font-family: "HelveticaNeue", "Helvetica", sans-serif;
-  font-weight: 800;
-  text-align: center;
-  font-size: 20px;
+.items_container .gallery-container .gallery-row .media-thumb {
+  position: relative;
+  margin-right: 40px;
+  width: auto;
+  height: 100%;
 }
 
-.login_container .login_contents .form-container form button {
-  padding: 10%;
-  padding-top: 4%;
-  padding-bottom: 4%;
-  width: 60%;
-  margin: auto;
-  border-radius: 0.5vw;
-  border: none;
-  font-family: "HelveticaNeue", "Helvetica", sans-serif;
+.items_container .gallery-container .gallery-row .scroll-left {
+  transition: 0.6s 0s ease-in-out forwards;
+  transform: translateX(300px);
+}
+
+.items_container .gallery-container .gallery-row .scroll-right {
+  transition: 0.6s 0s ease-in-out forwards;
+  transform: translateX(-300px);
 }
 /*# sourceMappingURL=master.css.map */
