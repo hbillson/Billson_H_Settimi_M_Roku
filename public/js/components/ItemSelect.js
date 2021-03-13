@@ -1,24 +1,34 @@
+import MovieThumb from "./MovieThumb.js";
+
 export default {
     name: "Items",
 
-    props: ["main-menu"],
+    props: ["main-menu", "parent-data"],
 
     data() {
         return {
-            hover: false
+            hover: false,
+            filters: this.parentData,
+            version: this.parentData[0],
+            type: this.parentData[1],
+            decade: this.parentData[3],
+            media: {}
         };
     },
 
     template: 
-    `<div class="items_container">
-     <h3>this is where the interactive gallery of movies/tv/music thumbnails will go</h3>
-        <div id="Example" class="thumb_container" @mouseover="showInfo" @mouseleave="hideInfo" @click="loadItem">  
-            <div class="info">
-                <p class="thumb-title">Movie Title Here</p>
-                <p class="thumb-info">Movie Description Here</p>
-            </div>
-        </div>
-    </div>`,
+    `<div>hello</div>`,
+//                <thumb v-for="item in media" :media="item" :key="item.key"></thumb>
+
+    created: function() {
+        console.log(this.filters);
+        this.version = this.version.toLowerCase();
+        this.type = this.type.toLowerCase();
+
+        let url = `/api/media/${this.version}/${this.type}/${this.decade}`;
+        console.log(this.parentData[2]);
+
+    },
 
     computed: {
         currentComponent: function() {
@@ -26,7 +36,6 @@ export default {
     },
 
     components: {
-
     },
 
     methods: {
