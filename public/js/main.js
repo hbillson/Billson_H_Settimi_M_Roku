@@ -100,22 +100,7 @@ import LoginComponent from "./components/LoginComponent.js";
                 this.currentDecade = decade;
                 this.newView = "item-select";
 
-                if (decade == "fifties") {
-                    this.max_year = "1959";
-                    this.min_year = "1950";
-                } else if (decade == "sixties") {
-                    this.max_year = "1969";
-                    this.min_year = "1960";
-                } else if (decade == "seventies") {
-                    this.max_year = "1969";
-                    this.min_year = "1960";
-                } else if (decade == "eighties") {
-                    this.max_year = "1969";
-                    this.min_year = "1960";
-                } else if (decade == "nineties") {
-                    this.max_year = "1969";
-                    this.min_year = "1960";
-                }
+               
                 this.thisData.push(this.currentDecade);
                 this.thisData.push(this.max_year);
                 this.thisData.push(this.min_year);

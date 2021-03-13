@@ -5,7 +5,7 @@ export default {
 
     template: `
         <div class="media-thumb">
-            <img @click="loadPlayer(media)" :src=media.thumb alt="movie thumb">
+            <img @click="loadPlayer(media)" :src=media.Poster alt="movie thumb">
         </div>
         `,
 

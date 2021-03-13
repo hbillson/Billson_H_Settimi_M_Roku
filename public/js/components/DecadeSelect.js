@@ -26,7 +26,7 @@ export default {
     },
 
     mounted: function() {
-        
+    
         let decadeBoxes = document.querySelectorAll(".decade");
         if(this.filters[1] == "Movies") {
             decadeBoxes.forEach(box => box.style.backgroundColor="#ad54cc");
@@ -35,9 +35,9 @@ export default {
         } else if (this.filters[1] == "Music") {
             decadeBoxes.forEach(box => box.style.backgroundColor="#ffd800");
         }
-
         this.version = this.version.toLowerCase();
         this.type = this.type.toLowerCase();
+        //let url = `/api/media/${this.version}/${this.type}`;
         let url = `/api/media/kids/movies`;
         fetch(url)
             .then(res => res.json())
@@ -54,6 +54,7 @@ export default {
     methods: {
         loadMedia(list) {
             this.medialist = list;
+            console.log(this.medialist);
             this.$emit("loadmedia", this.medialist);
         },
         addFilter(event) {
