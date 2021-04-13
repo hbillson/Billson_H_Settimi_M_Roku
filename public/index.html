@@ -46,7 +46,7 @@
            <router-view :key="$route.path" :parent-data="thisData" 
                 @setversion="setVersion" @setmediatype="setMediatype" 
                 @setdecade="setDecade" @loadmedia="loadMedia" @setitem="setItem"
-                @authenticated="setUser"></router-view>
+                @authenticated="setUser" :user="user" @parents="parentVersion"></router-view>
     </section>
 </main>
     <footer>

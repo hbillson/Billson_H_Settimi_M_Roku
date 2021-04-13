@@ -11,7 +11,7 @@ import Settings from "./components/Settings.js";
 import Profile from "./components/Profile.js";
 import LoginComponent from "./components/LoginComponent.js";
 import Player from "./components/PlayerComponent.js";
-
+import Pin from "./components/PinComponent.js";
 //const Vue = require('vue');
 
 (() => {
@@ -24,6 +24,7 @@ import Player from "./components/PlayerComponent.js";
         { path: '/login', name: "login", component: LoginComponent },
         { path: '/home', name: "home", component: MainMenu },
         { path: '/parents', name: "parents", component: MediaType },
+        { path: '/pin', name: "pin", component: Pin },
         { path: '/kids', name: "kids", component: MediaType },
         { path: '/movies', name: "movies", component: Decades },
         { path: '/tv', name: "tv", component: Decades },
@@ -54,9 +55,10 @@ import Player from "./components/PlayerComponent.js";
             thisData: [],
             sidebarLinks: [],
             authenticated: false,
+            parentauth: false,
             max_year: "0",
             min_year: "0",
-            user: []
+            user: {}
              },
 
             created: function() {
@@ -95,7 +97,16 @@ import Player from "./components/PlayerComponent.js";
                 document.querySelector(".home_title").style.display = "none";
                 //this.newView = "mediatype-select";
                // var url = version.toLowerCase();
-                this.$router.push(this.currentVersion);
+               if(this.currentVersion == "parents" && !this.parentauth && this.user.pin != 0) {
+                    this.$router.push("pin");
+               } else if(this.currentVersion == "parents" && this.parentauth) {
+                   this.$router.push("parents");
+               } else if(this.currentVersion == "parents" && this.user.pin == 0) {
+                    this.$router.push("parents");
+               } else {
+                this.$router.push("kids");
+               }
+
                 this.thisData.push(this.currentVersion);
             },
 
@@ -152,15 +163,17 @@ import Player from "./components/PlayerComponent.js";
             },
 
             setUser(user) {
-                this.user.push(user);
+                this.user = user;
                 this.authenticated = true;
                 //this.newView = "mainmenu";
                 this.$router.push('home');
                 console.log("going home");
-            }
-            
+            },
 
-
+            parentVersion() {
+                this.parentauth = true;
+                this.$router.push("parents");
+             }
             },
 
         components: {
@@ -172,7 +185,8 @@ import Player from "./components/PlayerComponent.js";
             "settings": Settings,
             "profile": Profile,
             "login": LoginComponent,
-            "player": Player
+            "player": Player,
+            "pin": Pin
         },
         router: router
     })
