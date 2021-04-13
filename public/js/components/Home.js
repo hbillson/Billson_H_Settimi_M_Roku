@@ -31,7 +31,6 @@ export default {
     methods: {
         addFilter(event) {
             var thisBox = event.target.id;
-            console.log(thisBox);
             this.$emit("setversion", thisBox);
          }
     }

@@ -12,7 +12,7 @@ export default {
             version: this.parentData[0],
             type: this.parentData[1],
             decade: this.parentData[2],
-            medialist: {}
+            medialist: this.parentData[5]
         };
     },
 
@@ -26,26 +26,14 @@ export default {
             <div @click="scrollLeft" class="l-arrow">◀</div>
             <div @click="scrollRight" class="r-arrow">▶</div>
             <div class="gallery-row">
-                <thumb v-for="item in medialist" :media="item" :key="item.imdbID"></thumb>
+                <thumb v-for="item in medialist" :media="item" :key="item.imdbID" @setitem="setItem"></thumb>
             </div>
         </div>
     </div>`,
 //               
 
     created: async function() {
-        console.log(this.filters);
-        this.version = this.version.toLowerCase();
-        this.type = this.type.toLowerCase();
-        console.log(this.decade);
-        let url = `/api/media/${this.version}/${this.type}/${this.decade}`;
-        var response = await fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            return data;
-        })
-        .catch(err => console.error(err));
-        console.log(await response);
-        this.medialist = await response;
+ 
     },
 
     computed: {
@@ -83,5 +71,9 @@ export default {
             let box = document.querySelector(".gallery-container");
             box.scrollLeft += 200;
         },
+
+        setItem(item) {
+            this.$emit("setitem", item);
+        }
         }
     }
