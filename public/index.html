@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/font-awesome-animation.css">
-    <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.5.1/dist/vue-router.js"></script>
 
 </head>
 
@@ -21,6 +21,8 @@
             <!--sidebar component-->
      
     </div>
+    <div class="loading">
+        Loading! Please wait just a minute...</div>
     <section id="home">
         <div class="topbar">
 
@@ -43,7 +45,7 @@
         <!-- just built with plain HTML and SCSS currently for styling purposes -->
            <component :is="setView" :parent-data="thisData" 
                 @setversion="setVersion" @setmediatype="setMediatype" 
-                @setdecade="setDecade" @loadmedia="loadMedia"></component>
+                @setdecade="setDecade" @loadmedia="loadMedia" @setitem="setItem"></component>
     </section>
 </main>
     <footer>

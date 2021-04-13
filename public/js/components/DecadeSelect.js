@@ -37,13 +37,14 @@ export default {
         }
         this.version = this.version.toLowerCase();
         this.type = this.type.toLowerCase();
-        let url = `/api/media/${this.version}/${this.type}/`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                this.loadMedia(data);
-            })
-            .catch(err => console.error(err));
+        // let url = `/api/media/${this.version}/${this.type}/`;
+        // 
+        // fetch(url)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         this.loadMedia(data);
+        //     })
+        //     .catch(err => console.error(err));
     },
 
     components: {
@@ -52,13 +53,30 @@ export default {
 
     methods: {
         loadMedia(list) {
+            console.log(list);
+            document.querySelector(".loading").style.display = "none";
             this.medialist = list;
-            console.log(this.medialist);
             //this.$emit("loadmedia", this.medialist);
         },
-        addFilter(event) {
-            var thisBox = event.target.id;
-            this.$emit("setdecade", thisBox);
+        async addFilter(event) {
+            var decade = event.target.id;
+            console.log(this.filters);
+            this.version = this.version.toLowerCase();
+            this.type = this.type.toLowerCase();
+            let url = `/api/media/${this.version}/${this.type}/${decade}`;
+            document.querySelector(".loading").style.display = "flex";
+            var response = await fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                return data;
+            })
+            .catch(err => console.error(err));
+            this.medialist = await response;
+            console.log(this.medialist);
+
+            let filtered = { list: this.medialist, dec: decade};
+            document.querySelector(".loading").style.display = "none";
+            this.$emit("setdecade", filtered);
          }
     }
 

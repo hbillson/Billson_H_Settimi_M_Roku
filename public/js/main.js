@@ -10,6 +10,9 @@ import Sidebar from "./components/Sidebar.js";
 import Settings from "./components/Settings.js";
 import Profile from "./components/Profile.js";
 import LoginComponent from "./components/LoginComponent.js";
+import Player from "./components/PlayerComponent.js";
+
+//const Vue = require('vue');
 
 (() => {
 
@@ -36,7 +39,7 @@ import LoginComponent from "./components/LoginComponent.js";
             isVisible: "false",
             currrentMedia: {},
             currentView: {},
-            newView: "mainmenu",
+            newView: "login",
             currentDecade: {},
             thisData: [],
             sidebarLinks: [],
@@ -49,7 +52,7 @@ import LoginComponent from "./components/LoginComponent.js";
                 password: "password"
             },
             user: []
-         },
+             },
 
             created: function() {
             },
@@ -95,15 +98,19 @@ import LoginComponent from "./components/LoginComponent.js";
                 this.newView = "decade-select";
                 this.thisData.push(this.currentMediatype);
             },
-
-            setDecade(decade) {
-                this.currentDecade = decade;
+   setDecade(filtered) {
+                this.currentDecade = filtered.dec;
                 this.newView = "item-select";
-
-               
                 this.thisData.push(this.currentDecade);
                 this.thisData.push(this.max_year);
                 this.thisData.push(this.min_year);
+
+                this.loadMedia(filtered.list);
+            },
+
+            setItem(item) {
+                this.newView = "player";
+                this.thisData.push(item);
             },
 
             toggleSettings() {
@@ -130,7 +137,8 @@ import LoginComponent from "./components/LoginComponent.js";
 
             loadMedia(list) {
                 this.thisData.push(list);
-            }
+            },
+            
 
 
             },
@@ -143,7 +151,8 @@ import LoginComponent from "./components/LoginComponent.js";
             "sidebar": Sidebar,
             "settings": Settings,
             "profile": Profile,
-            "login": LoginComponent
+            "login": LoginComponent,
+            "player": Player
         },
         router: router
     })

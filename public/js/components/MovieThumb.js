@@ -12,6 +12,7 @@ export default {
     methods: {
         loadPlayer(media) {
             debugger;
+            this.$emit("setitem", media);
         }
     }
 
