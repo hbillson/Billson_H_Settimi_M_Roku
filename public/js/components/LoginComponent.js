@@ -121,7 +121,7 @@ export default {
                         this.message = "Logged in successfully.";
                         console.log("user authenticated!");
                         this.currentUser = data[i];
-                        console.log(this.currentUser);
+                        this.$emit("authenticated", this.currentUser);
                     } else {
                         this.message = "Incorrect password. Please try again."
                        // console.log("sorry, wrong password...");

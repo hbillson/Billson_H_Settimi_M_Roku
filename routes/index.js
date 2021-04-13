@@ -4,7 +4,7 @@ const router = express.Router();
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 router.use("/api", createProxyMiddleware({
-    target: 'http://localhost:8080', 
+    target: 'http://localhost:5000', 
     headers: {
         accept: "application/json, application/x-www-form-urlencoded"
     },
