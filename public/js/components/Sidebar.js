@@ -16,11 +16,11 @@ export default {
         <div class="sidebar_contents">
             <div class="sidebar_wrapper">
                 <div class="sidebar_links">
-                    <a @click="clickedLink" name="mainmenu" class="sidebar_link">HOME</a>
+                    <a @click="clickedLink" name="home" class="sidebar_link">HOME</a>
                     <a @click="clickedLink" name="profile" class="sidebar_link">PROFILE</a>
-                    <a @click="clickedLink" name="decade-select" class="sidebar_link">MOVIES</a>
-                    <a @click="clickedLink" name="decade-select" class="sidebar_link">TV</a>
-                    <a @click="clickedLink" name="decade-select" class="sidebar_link">MUSIC</a>
+                    <a @click="clickedLink" name="menu/movies" class="sidebar_link">MOVIES</a>
+                    <a @click="clickedLink" name="menu/tv" class="sidebar_link">TV</a>
+                    <a @click="clickedLink" name="menu/music" class="sidebar_link">MUSIC</a>
                 </div>
                 <div class="sidebar_footer">
                     <div class="socials">

@@ -19,16 +19,26 @@ import Player from "./components/PlayerComponent.js";
 
     Vue.use(VueRouter);
 
-
-
+    const routes = [
+        { path: '/', redirect: { name: "login" } },
+        { path: '/login', name: "login", component: LoginComponent },
+        { path: '/home', name: "home", component: MainMenu },
+        { path: '/parents', name: "parents", component: MediaType },
+        { path: '/kids', name: "kids", component: MediaType },
+        { path: '/movies', name: "movies", component: Decades },
+        { path: '/tv', name: "tv", component: Decades },
+        { path: '/music', name: "music", component: Decades },
+        { path: '/fifties', name: "fifties", component: Items },
+        { path: '/sixties', name: "sixties", component: Items },
+        { path: '/seventies', name: "seventies", component: Items },
+        { path: '/eighties', name: "eighties", component: Items },
+        { path: '/nineties', name: "nineties", component: Items },
+        { path: '/player', name: "player", component: Player},
+    ]
     let router = new VueRouter({
-
+        mode: 'history',
         // set routes
-        routes: [
-            { path: '/', redirect: { name: "login" } },
-            { path: '/login', name: "login", component: LoginComponent },
-            { path: '/mainmenu', name: "users", component: MainMenu }
-        ]
+        routes
     });
     const vm = new Vue({
         //el: "#app",
@@ -38,19 +48,14 @@ import Player from "./components/PlayerComponent.js";
             currentVersion: {},
             isVisible: "false",
             currrentMedia: {},
-            currentView: {},
-            newView: "login",
+            //currentView: window.location.pathname,
+            //newView: "login",
             currentDecade: {},
             thisData: [],
             sidebarLinks: [],
             authenticated: false,
-            administrator: false,
             max_year: "0",
             min_year: "0",
-            mockAccount: {
-                username: "user",
-                password: "password"
-            },
             user: []
              },
 
@@ -86,21 +91,25 @@ import Player from "./components/PlayerComponent.js";
         methods: {
             // function that changes what's in the main page's box based on which side you click
             setVersion(version) {
-                this.currentVersion = version;
+                this.currentVersion = version.toLowerCase();
                 document.querySelector(".home_title").style.display = "none";
-                this.newView = "mediatype-select";
-
+                //this.newView = "mediatype-select";
+               // var url = version.toLowerCase();
+                this.$router.push(this.currentVersion);
                 this.thisData.push(this.currentVersion);
             },
 
             setMediatype(mediatype) {
                 this.currentMediatype = mediatype;
-                this.newView = "decade-select";
+               // this.newView = "decade-select";
+                mediatype = mediatype.toLowerCase();
+                this.$router.push(mediatype);
                 this.thisData.push(this.currentMediatype);
             },
-   setDecade(filtered) {
+            setDecade(filtered) {
                 this.currentDecade = filtered.dec;
-                this.newView = "item-select";
+               // this.newView = "item-select";
+                this.$router.push(this.currentDecade);
                 this.thisData.push(this.currentDecade);
                 this.thisData.push(this.max_year);
                 this.thisData.push(this.min_year);
@@ -109,7 +118,8 @@ import Player from "./components/PlayerComponent.js";
             },
 
             setItem(item) {
-                this.newView = "player";
+                //this.newView = "player";
+                this.$router.push("player");
                 this.thisData.push(item);
             },
 
@@ -125,9 +135,11 @@ import Player from "./components/PlayerComponent.js";
 
             updateView(event) {
                 let view = event.target.name;
-                this.newView = view;
+                this.$router.push(view);
 
-                if(this.newView == "mainmenu") {
+               // this.newView = view;
+
+                if(view == "home") {
                     document.querySelector(".home_title").style.display = "block";
                     this.thisData.splice(0, this.thisData.length);
                 } else {
@@ -138,6 +150,14 @@ import Player from "./components/PlayerComponent.js";
             loadMedia(list) {
                 this.thisData.push(list);
             },
+
+            setUser(user) {
+                this.user.push(user);
+                this.authenticated = true;
+                //this.newView = "mainmenu";
+                this.$router.push('home');
+                console.log("going home");
+            }
             
 
 

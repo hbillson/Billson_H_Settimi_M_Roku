@@ -28,7 +28,7 @@
 
             <!-- the top, where we see the logo settings & profile buttons -->
             <div name="mainmenu" class="logo">
-                <img @click="updateView" name="mainmenu" class="logo" src="images/logo.png" alt="Roku Logo">
+                <img @click="updateView" name="home" class="logo" src="images/logo.png" alt="Roku Logo">
             </div>
             <div class="icons_container">
                 <a class="settings-icon"><i @click="toggleSettings" class="fa fa-gear"></i></a>
@@ -43,9 +43,10 @@
         
         <!-- the main homepage view, with clickable containers on each side -->
         <!-- just built with plain HTML and SCSS currently for styling purposes -->
-           <component :is="setView" :parent-data="thisData" 
+           <router-view :key="$route.path" :parent-data="thisData" 
                 @setversion="setVersion" @setmediatype="setMediatype" 
-                @setdecade="setDecade" @loadmedia="loadMedia" @setitem="setItem"></component>
+                @setdecade="setDecade" @loadmedia="loadMedia" @setitem="setItem"
+                @authenticated="setUser"></router-view>
     </section>
 </main>
     <footer>

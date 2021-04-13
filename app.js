@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 5050;
+const history = require('connect-history-api-fallback');
 
 express.json();
 express.urlencoded({
@@ -24,8 +25,22 @@ var phpExpress = require('php-express')({
   app.all(/.+\.php$/, phpExpress.router);
 
 app.use(express.static(path.join(__dirname, "public")));
-
 app.use("/", require("./routes/index"));
+
+
+const staticFileMiddleware = express.static(path.join(__dirname + 'public'));
+
+app.use(staticFileMiddleware);
+app.use(history({
+  disableDotRule: true,
+  verbose:true
+}));
+app.use(staticFileMiddleware);
+
+
+app.get('/', function(req, res) {
+    res.render(path.join(__dirname + '/index.html'));
+  });
 
 app.listen(port, () => {
 	console.log(`app is running on ${port}`);
