@@ -77,6 +77,15 @@
   display: none;
 }
 
+.error {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  display: none;
+}
+
 /*!
  * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -6549,7 +6558,18 @@ h2 {
   background-color: black;
 }
 
+.items_container .banner .banner-bg {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .items_container .banner .banner-title {
+  position: fixed;
+  top: 0;
+  left: 40vw;
+  z-index: 999999;
   color: #ad54cc;
   font-family: "LEMON MILK", sans-serif;
 }

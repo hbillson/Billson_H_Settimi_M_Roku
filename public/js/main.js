@@ -35,6 +35,7 @@ import Pin from "./components/PinComponent.js";
         { path: '/eighties', name: "eighties", component: Items },
         { path: '/nineties', name: "nineties", component: Items },
         { path: '/player', name: "player", component: Player},
+        { path: '/profile', name: "profile", component: Profile},
     ]
     let router = new VueRouter({
         mode: 'history',

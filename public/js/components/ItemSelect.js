@@ -12,13 +12,18 @@ export default {
             version: this.parentData[0],
             type: this.parentData[1],
             decade: this.parentData[2],
-            medialist: this.parentData[5]
+            medialist: this.parentData[5],
+            typevalues: {
+                "isMovie": true,
+                "isMusic": false
+             }
         };
     },
 
     template: 
     `<div class="items_container">
         <div class="banner">
+        <img class="banner-bg" :src="setBackground">
             <h2 class="banner-title">{{parentData[2]}}</h2>
         </div>
         <div class="gallery-container">
@@ -26,7 +31,7 @@ export default {
             <div @click="scrollLeft" class="l-arrow">◀</div>
             <div @click="scrollRight" class="r-arrow">▶</div>
             <div class="gallery-row">
-                <thumb v-for="item in medialist" :media="item" :key="item.imdbID" @setitem="setItem"></thumb>
+                <thumb v-for="item in medialist" :media="item" :type="type" :key="item.imdbID" @setitem="setItem"></thumb>
             </div>
         </div>
     </div>`,
@@ -37,7 +42,27 @@ export default {
     },
 
     computed: {
+        setBackground() {
+            var decade = this.decade.toLowerCase();
+            var type = this.type.toLowerCase();
+            var version = this.version.toLowerCase();
+            var bg = "";
 
+            if(type == "movies" || type == "tv" && version == "parents") {
+                bg = `images/${decade}-bg.jpg`
+                return bg;
+            } else if(type == "music") {
+                bg = `images/music-bg.jpg`;
+                return bg;
+            } else if(type == "movies" || type == "tv" && version == "kids") {
+                bg = `images/${decade}-bg-kids.jpg`
+                return bg;
+            }
+        }
+    },
+
+    mounted: function() {
+       
     },
 
     components: {

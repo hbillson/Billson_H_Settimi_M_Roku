@@ -11,7 +11,17 @@
         width:100%;
         background-color:black;
 
+        .banner-bg {
+            position:relative;
+            height:100%;
+            width:100%;
+            object-fit:cover;
+        }
         .banner-title {
+            position:fixed;
+            top:0;
+            left:40vw;
+            z-index:999999;
             color:$purple;
             font-family:$title-font;
         }
