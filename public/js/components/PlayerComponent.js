@@ -6,7 +6,8 @@ export default {
     data() {
         return {
            media: this.parentData[6],
-           source: ""
+           source: "",
+           type: this.parentData[1]
         };
     },
 
@@ -20,7 +21,7 @@ export default {
                     <p>Rated: {{media.Rated}}</p>
                 </div>
                 <iframe @mouseenter="showDesc" @mouseleave="hideDesc" width="1080" height="720" 
-                :src="source" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                :src="setSource" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
            </div>
         `,
@@ -33,25 +34,25 @@ export default {
         },
 
         mounted: async function() {
-            let q = this.media.Title;
-            let url = `/api/videos/${q}`;
-            document.querySelector(".loading").style.display = "flex";
-            var response = await fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                return data;
-            })
-            .catch(err => console.error(err));
-            this.source = response;
-            console.log(this.source);
-            document.querySelector(".loading").style.display = "none";
+            if(this.type == "Movies" || this.type == "TV") {
+                let q = this.media.Title;
+                let url = `/api/videos/${q}`;
+                document.querySelector(".loading").style.display = "flex";
+                var response = await fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    return data;
+                })
+                .catch(err => console.error(err));
+                this.source = response;
+                console.log(this.source);
+                document.querySelector(".loading").style.display = "none";
+            } else if(this.type == "Music") {
+                this.source = `https://www.youtube.com/embed/${this.media.id}`;
+            }
         },
 
     methods: {
-        loadPlayer(media) {
-            debugger;
-        },
-
         showDesc() {
            console.log("toggling desc");
             document.querySelector(".media-desc").style.display = "block";

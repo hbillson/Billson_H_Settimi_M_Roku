@@ -64,6 +64,7 @@ export default {
             this.version = this.version.toLowerCase();
             this.type = this.type.toLowerCase();
             let url = `/api/media/${this.version}/${this.type}/${decade}`;
+            console.log(url);
             document.querySelector(".loading").style.display = "flex";
             var response = await fetch(url)
             .then(res => res.json())
@@ -72,7 +73,7 @@ export default {
             })
             .catch(err => console.error(err));
             this.medialist = await response;
-            console.log(this.medialist);
+            //console.log(this.medialist);
 
             let filtered = { list: this.medialist, dec: decade};
             document.querySelector(".loading").style.display = "none";
