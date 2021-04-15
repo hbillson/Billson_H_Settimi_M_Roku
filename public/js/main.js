@@ -103,6 +103,7 @@ import Pin from "./components/PinComponent.js";
                } else if(this.currentVersion == "parents" && this.parentauth) {
                    this.$router.push("parents");
                } else if(this.currentVersion == "parents" && this.user.pin == 0) {
+                    this.parentauth = true;
                     this.$router.push("parents");
                } else {
                 this.$router.push("kids");
@@ -136,17 +137,29 @@ import Pin from "./components/PinComponent.js";
             },
 
             toggleSettings() {
-                document.querySelector(".home_title").style.display = "none";
                 this.newView = "settings";
             },
 
             toggleProfile() {
-                document.querySelector(".home_title").style.display = "none";
-                this.newView = "profile";
+                this.$router.push("profile");
             },
 
             updateView(event) {
                 let view = event.target.name;
+                this.thisData.length = 1;
+                let version = capitalize(view);
+                function capitalize(view) {
+                    if(view == "tv") {
+                        let v = view.toUpperCase();
+                        return v;
+                    } else {
+                        let firstLetter = view.charAt(0).toUpperCase();
+                        let rest = view.slice(1);
+                        let v = `${firstLetter}${rest}`;
+                        return v;
+                    }
+                }
+                this.thisData.push(version);
                 this.$router.push(view);
 
                // this.newView = view;
@@ -168,7 +181,6 @@ import Pin from "./components/PinComponent.js";
                 this.authenticated = true;
                 //this.newView = "mainmenu";
                 this.$router.push('home');
-                console.log("going home");
             },
 
             parentVersion() {
@@ -195,7 +207,6 @@ import Pin from "./components/PinComponent.js";
 
     // add some router security here
     router.beforeEach((to, from, next) => {
-        console.log('router guard fired');
         // if the Vue authenticated property is set to false, then
         // push the user back to the login screen (cuz they're not logged in)
 

@@ -16,7 +16,8 @@ export default {
             typevalues: {
                 "isMovie": true,
                 "isMusic": false
-             }
+             },
+             scrollAmount: 500
         };
     },
 
@@ -48,13 +49,19 @@ export default {
             var version = this.version.toLowerCase();
             var bg = "";
 
-            if(type == "movies" || type == "tv" && version == "parents") {
-                bg = `images/${decade}-bg.jpg`
+            if(type == "movies" && version == "parents") {
+                bg = `images/${decade}-bg.jpg`;
                 return bg;
             } else if(type == "music") {
                 bg = `images/music-bg.jpg`;
                 return bg;
-            } else if(type == "movies" || type == "tv" && version == "kids") {
+            } else if(type == "tv"  && version == "parents") {
+                bg = `images/${decade}-bg.jpg`
+                return bg;
+            } else if(type == "movies" && version == "kids") {
+                bg = `images/${decade}-bg-kids.jpg`
+                return bg;
+            } else if(type == "tv" && version == "kids") {
                 bg = `images/${decade}-bg-kids.jpg`
                 return bg;
             }
@@ -84,17 +91,28 @@ export default {
 
         loadItem(event) {
             var thisBox = event.target.id;
-            console.log(thisBox);
          },
 
          scrollLeft() {
-             let box = document.querySelector(".gallery-container");
-             box.scrollLeft += 200;
+            debugger;
+            let box = document.querySelector(".gallery-row");
+            box.scrollTo({
+                top: 0,
+                left: this.scrollAmount,
+                behavior: 'smooth'
+            });
+            this.scrollAmount += 500;
          },
 
          scrollRight() {
-            let box = document.querySelector(".gallery-container");
-            box.scrollLeft += 200;
+            debugger;
+            let box = document.querySelector(".gallery-row");
+            box.scrollTo({
+                top: 0,
+                left: this.scrollAmount,
+                behavior: 'smooth'
+            });
+            this.scrollAmount -= 500;
         },
 
         setItem(item) {

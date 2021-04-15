@@ -56,48 +56,22 @@ export default {
         }
     },
 
+    mounted: function() {
+        document.querySelector(".sidebar").style.display = "none";
+    },
+
     methods: {
         goToLogin() {
             this.isSignup = false;
             this.isLogin = true;
         },
         login() {
-            //console.log(this.$parent.mockAccount.username);
-            // debugger;
             if (this.input.username != "" && this.input.password != "") {
-                // use the FormData object to collect and send our params
-            //     let formData = new FormData();
-
-            //    formData.append("username", this.input.username);
-            //    formData.append("password", this.input.password);
-
-            //     //formData["username"] = this.input.username;
-            //     for(var pair of formData.entries()) {
-            //         console.log(pair[0]+ ', '+ pair[1]);
-            //      };
                  let url = "admin/index.php?user=true";
-            //    // console.log(this.input.username);
-            //     //console.log(formData.get("username"));
-                fetch(url
-                //     , {
-                //     method: "POST",
-                //     headers: { 'Accept': 'application/json','Content-Type': 'application/json'},
-                //     body: formData
-                // }
-                )  
+                 fetch(url)  
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
-                    this.checkCreds(data);
-                    // tell the app that we have a successful login
-                    // and store the user object that we retrieved
-
-                    // true below means that authentication worked
-                    // data is the user we retrieved from the DB
-                   // this.$emit("authenticated", true, data[0]);
-
-                    // push the user to the users page
-                   // this.$router.replace({name: "users"});                    
+                    this.checkCreds(data);                 
                 })
                 .catch((err) => console.log(err));
 
@@ -124,13 +98,11 @@ export default {
                         this.$emit("authenticated", this.currentUser);
                     } else {
                         this.message = "Incorrect password. Please try again."
-                       // console.log("sorry, wrong password...");
                     }
                 }
             }
             if(!userExists) {
                 this.message = "Oops! Looks like we don't have any records under that username. Please check your spelling and try again."
-                //console.log("user doesn't exist...");
             }
         },
 
@@ -147,7 +119,6 @@ export default {
                 fetch(url)  
                 .then(res => res.text())
                 .then(data => {
-                    console.log(data);
                     this.message = "Creation successful! Please log in."
                     this.isSignup = false;
                     this.isLogin = true;

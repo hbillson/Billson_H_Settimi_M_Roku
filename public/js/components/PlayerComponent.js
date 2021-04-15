@@ -7,23 +7,22 @@ export default {
         return {
            media: this.parentData[6],
            source: "",
-           type: this.parentData[1]
+           type: this.parentData[1],
+           decade: this.parentData[2],
+           title: "",
+           artist: "",
+           isMusic: true
         };
     },
 
     template: `
         <div class="media-player">
             <div class="vid-container">
-                <div class="media-desc">
-                    <h3>{{media.Title}} ({{media.Year}})</h3>
-                    <p>{{media.Plot}} </p>
-                    <p>Starring: {{media.Actors}}</p>
-                    <p>Rated: {{media.Rated}}</p>
-                </div>
-                <iframe @mouseenter="showDesc" @mouseleave="hideDesc" width="1080" height="720" 
-                :src="setSource" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="1080" height="720" 
+                    :src="setSource" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <h2 @click="goBack">BACK</h2>
             </div>
-           </div>
+        </div>
         `,
 
         computed: {
@@ -44,8 +43,8 @@ export default {
                     return data;
                 })
                 .catch(err => console.error(err));
-                this.source = response;
-                console.log(this.source);
+                // this.source = response;
+                // this.title = response.title;
                 document.querySelector(".loading").style.display = "none";
             } else if(this.type == "Music") {
                 this.source = `https://www.youtube.com/embed/${this.media.id}`;
@@ -53,14 +52,9 @@ export default {
         },
 
     methods: {
-        showDesc() {
-           console.log("toggling desc");
-            document.querySelector(".media-desc").style.display = "block";
-        },
-
-        hideDesc() {
-            document.querySelector(".media-desc").style.display = "none";
-        },
+       goBack() {
+          this.$router.push(this.decade)
+       }
         
     }
 
