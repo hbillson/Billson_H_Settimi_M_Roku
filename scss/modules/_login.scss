@@ -16,10 +16,18 @@
         align-items:center;
         justify-content:center;
         text-align:center;
+        button {
+            margin-top:1vh;
+            margin-bottom:1vh;
+        }
         h3 {
             width:40%;
             font-size:$desktop-subtitle-font-size;
             line-height:1.2;
+        }
+
+        h5 { 
+            cursor:pointer;
         }
 
  

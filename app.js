@@ -24,8 +24,9 @@ var phpExpress = require('php-express')({
   // routing all .php file to php-express
   app.all(/.+\.php$/, phpExpress.router);
 
-app.use(express.static(path.join(__dirname, "public")));
-app.use("/", require("./routes/index"));
+  app.use(express.static(path.join(__dirname, "public")));
+
+  app.use("/", require("./routes/index"));
 
 
 const staticFileMiddleware = express.static(path.join(__dirname + 'public'));
@@ -36,6 +37,7 @@ app.use(history({
   verbose:true
 }));
 app.use(staticFileMiddleware);
+
 
 
 app.get('/', function(req, res) {

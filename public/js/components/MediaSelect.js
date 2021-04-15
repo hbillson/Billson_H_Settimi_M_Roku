@@ -10,9 +10,9 @@ export default {
 
     template: 
     `<div class="options_container">
-        <div class="mediatype" id="Movies" @click="addFilter"><h2 class="options_title">Movies</h2></div>
-        <div class="mediatype" id="TV" @click="addFilter"><h2 class="options_title">TV</h2></div>
-        <div class="mediatype" id="Music" @click="addFilter"><h2 class="options_title">Music</h2></div>
+        <div @mouseover="hover" @mouseleave="unhover" class="mediatype" id="Movies" @click="addFilter('Movies')"><h2 @mouseover.stop="hover" class="options_title" @click="addFilter('Movies')">Movies</h2></div>
+        <div @mouseover="hover" @mouseleave="unhover" class="mediatype" id="TV" @click="addFilter('TV')"><h2 @mouseover.stop="hover" class="options_title" @click="addFilter('TV')">TV</h2></div>
+        <div @mouseover="hover" @mouseleave="unhover" class="mediatype" id="Music" @click="addFilter('Music')"><h2@mouseover.stop="hover" class="options_title" @click="addFilter('Music')">Music</h2></div>
     </div>`,
 
     computed: {
@@ -25,9 +25,27 @@ export default {
     },
 
     methods: {
-        addFilter(event) {
-            var thisBox = event.target.id;
-            this.$emit("setmediatype", thisBox);
+        addFilter(version) {
+            this.$emit("setmediatype", version);
+         },
+
+         hover(event) {
+            if(event.target.id == "Movies") {
+               event.target.classList.add("darkpurple");
+            } else if (event.target.id == "TV") {
+               event.target.classList.add("darkblue");
+            } else if (event.target.id == "Music") {
+                event.target.classList.add("darkyellow");
+             }
+        },
+        unhover(event) {
+            if(event.target.id == "Movies") {
+                event.target.classList.remove("darkpurple");
+             } else if (event.target.id == "TV") {
+                event.target.classList.remove("darkblue");
+             } else if (event.target.id == "Music") {
+                 event.target.classList.remove("darkyellow");
+              }
          }
     }
 

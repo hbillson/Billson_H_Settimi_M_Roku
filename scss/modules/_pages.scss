@@ -3,7 +3,7 @@
     flex-direction:row;
     height:100vh;
     width:100vw;
-    background-color:$blue;
+    background-color:$red;
 
     .profile-container {
         width:100%;
@@ -14,5 +14,15 @@
         align-items:center;
         align-content:center;
         text-align:center;
+
+        h2 {
+            font-size:35px;
+            padding:0;
+            margin:0;
+        }
+
+        h3 {
+            padding:0;
+        }
     }
 }

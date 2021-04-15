@@ -43,8 +43,7 @@ export default {
                     return data;
                 })
                 .catch(err => console.error(err));
-                // this.source = response;
-                // this.title = response.title;
+                 this.source = response;
                 document.querySelector(".loading").style.display = "none";
             } else if(this.type == "Music") {
                 this.source = `https://www.youtube.com/embed/${this.media.id}`;
@@ -53,7 +52,7 @@ export default {
 
     methods: {
        goBack() {
-          this.$router.push(this.decade)
+        this.$router.go(-1);
        }
         
     }

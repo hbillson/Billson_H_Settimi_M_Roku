@@ -12,8 +12,8 @@ export default {
                         <input v-model="input.pin" type="text" class="form-text" name="pin" placeholder="####" required>
 
                         <button type="submit" class="login-button">Submit</button>
-                        <button class="login-button" @click="goBack">Go Back</button>
                     </form>       
+                    <button class="login-button" @click="goBack">Go Back</button>
 
                 </div>   
             </div>
@@ -33,14 +33,13 @@ export default {
         check() {
             if(this.input.pin == this.pin) {
                 console.log("parent authenticated!");
-                this.$emit("update-view", "home");
                 this.$emit("parents");
             } else {
                 console.log("parent pin wrong")
             }
         },
         goBack() {
-            this.$emit("update-view", "home")
+            this.$router.go(-1);
         }
     }
 }

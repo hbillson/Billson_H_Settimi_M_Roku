@@ -22,7 +22,9 @@
      
     </div>
     <div class="loading">
-        Loading! Please wait just a minute...</div>
+        <h3>Loading! Please wait a minute...</h3>
+        <div><i class="fas fa-spinner fa-pulse"></i></div>
+    </div>
     <section id="home">
         <div class="topbar">
 
@@ -31,8 +33,8 @@
                 <img @click="updateView" name="home" class="logo" src="images/logo.png" alt="Roku Logo">
             </div>
             <div class="icons_container">
-                <a class="settings-icon"><i @click="toggleSettings" class="fa fa-gear"></i></a>
-                <a class="profile-icon"><i @click="toggleProfile" class="fa fa-user faa-float"></i></a>
+                <a class="settings-icon"><i @click="toggleProfile" class="fa fa-gear"></i></a>
+                <a  class="profile-icon"><i @click="toggleProfile" class="fa fa-user faa-float"></i></a>
             </div>
             
         </div>

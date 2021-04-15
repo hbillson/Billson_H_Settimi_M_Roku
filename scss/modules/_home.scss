@@ -10,6 +10,7 @@
         text-align:center;
         height:auto;
         margin-top:50vh;
+        cursor:pointer;
     }
 }
 
@@ -24,10 +25,24 @@
     height:100%;
     width:50%;
     background-color:$yellow;
+    transition:$shorttransition;
+    cursor:pointer;
 
     .selected {
         width:100%!important;
     }
+}
+.darkyellow {
+    background-color:$darkyellow!important;
+}
+.darkblue {
+    background-color:$darkblue!important;
+}
+.darkpurple {
+    background-color:$darkpurple!important;
+}
+.darkred {
+    background-color:$darkred!important;
 }
 
 .decade {
@@ -35,17 +50,28 @@
     width:20%;
     display:block;
     background-color:$purple;
+    transition:$shorttransition;
+    cursor:pointer;
+
+}
+.decade:hover {
+    background-color:$darkpurple;
 }
 
 .mediatype {
     height:100%;
     width:33.33%;
     display:block;
+    cursor:pointer;
+
 }
+
 
 .options_box:first-child {
     background-color:$purple;
+    transition:$shorttransition;
 }
+
 
 .password_container {
    text-align:center;
@@ -81,15 +107,33 @@
 }
 
 #Movies {
+    transition:$transition;
     background-color:$purple;
 }
 
+#Movies:hover {
+    transition:$transition;
+    background-color:$darkpurple;
+}
+
 #TV {
+    transition:$transition;
     background-color:$blue;
 }
 
+#TV:hover {
+    transition:$transition;
+    background-color:$darkblue;
+}
+
 #Music {
+    transition:$transition;
     background-color:$yellow;
+}
+
+#Music:hover {
+    transition:$transition;
+    background-color:$darkyellow;
 }
 
 .items_container {

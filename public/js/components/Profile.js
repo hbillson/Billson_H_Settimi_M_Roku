@@ -1,7 +1,7 @@
 export default {
     name: "Profile",
 
-    props: ["parent-data"],
+    props: ["parent-data", "user"],
 
     data() {
         return {
@@ -13,11 +13,11 @@ export default {
     `<div class="menu_container">
         <div class="profile-container">
             <h2 class="profile-heading">USERNAME</h2>
-            <h3 class="profile-text">username</h3>
+            <h3 class="profile-text">{{user.uname}}</h3>
             <h2 class="profile-heading">NAME</h2>
-            <h3 class="profile-text">name</h3>
+            <h3 class="profile-text">{{user.nickname}}</h3>
             <h2 class="profile-heading">EMAIL ADDRESS</h2>
-            <h3 class="profile-text">email</h3>
+            <h3 class="profile-text">{{user.email}}</h3>
         </div>
     </div>`,
 
