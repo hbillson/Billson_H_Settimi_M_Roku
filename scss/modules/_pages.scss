@@ -3,13 +3,16 @@
     flex-direction:row;
     height:100vh;
     width:100vw;
-    background-color:$red;
+    background-color:$blue;
 
-    .menu_title {
-        display:inline-block;
+    .profile-container {
         width:100%;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        justify-items:center;
+        align-items:center;
+        align-content:center;
         text-align:center;
-        height:auto;
-        margin-top:50vh;
     }
 }

@@ -24,8 +24,9 @@ export default {
         }
     },
 
-    components: {
-
+  
+    mounted: function() {
+        document.querySelector(".sidebar").style.display = "block";
     },
 
     methods: {
