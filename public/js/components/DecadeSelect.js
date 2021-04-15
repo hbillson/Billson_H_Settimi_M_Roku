@@ -14,11 +14,11 @@ export default {
 
     template: 
     `<div class="options_container" >
-        <div class="decade" id="fifties" @click="addFilter"><h2 class="options_title">50's</h2></div>
-        <div class="decade" id="sixties" @click="addFilter"><h2 class="options_title">60's</h2></div>
-        <div class="decade" id="seventies" @click="addFilter"><h2 class="options_title">70's</h2></div>
-        <div class="decade" id="eighties" @click="addFilter"><h2 class="options_title">80's</h2></div>
-        <div class="decade" id="nineties" @click="addFilter"><h2 class="options_title">90's</h2></div>
+        <div @mouseover="hover" @mouseleave="unhover" class="decade" id="fifties" @click="addFilter('fifties')"><h2 @mouseover.stop="hover" class="options_title" @click="addFilter('fifties')">50's</h2></div>
+        <div @mouseover="hover" @mouseleave="unhover" class="decade" id="sixties" @click="addFilter('sixties')"><h2 @mouseover.stop="hover"  class="options_title" @click="addFilter('sixties')">60's</h2></div>
+        <div @mouseover="hover" @mouseleave="unhover" class="decade" id="seventies" @click="addFilter('seventies')"><h2 @mouseover.stop="hover"  class="options_title" @click="addFilter('seventies')">70's</h2></div>
+        <div @mouseover="hover" @mouseleave="unhover" class="decade" id="eighties" @click="addFilter('eighties')"><h2 @mouseover.stop="hover"  class="options_title" @click="addFilter('eighties')">80's</h2></div>
+        <div @mouseover="hover" @mouseleave="unhover" class="decade" id="nineties" @click="addFilter('nineties')"><h2 @mouseover.stop="nohover"class="options_title" @click="addFilter('nineties')">90's</h2></div>
     </div>`,
 
     computed: {
@@ -37,14 +37,7 @@ export default {
         }
         this.version = this.version.toLowerCase();
         this.type = this.type.toLowerCase();
-        // let url = `/api/media/${this.version}/${this.type}/`;
-        // 
-        // fetch(url)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         this.loadMedia(data);
-        //     })
-        //     .catch(err => console.error(err));
+
     },
 
     components: {
@@ -55,10 +48,8 @@ export default {
         loadMedia(list) {
             document.querySelector(".loading").style.display = "none";
             this.medialist = list;
-            //this.$emit("loadmedia", this.medialist);
         },
-        async addFilter(event) {
-            var decade = event.target.id;
+        async addFilter(decade) {
             this.version = this.version.toLowerCase();
             this.type = this.type.toLowerCase();
             let url = `/api/media/${this.version}/${this.type}/${decade}`;
@@ -73,7 +64,26 @@ export default {
             let filtered = { list: this.medialist, dec: decade};
             document.querySelector(".loading").style.display = "none";
             this.$emit("setdecade", filtered);
-         }
+         },
+         hover(event) {
+             if(this.type == "movies") {
+                event.target.classList.add("darkpurple");
+             } else if (this.type == "tv") {
+                event.target.classList.add("darkblue");
+             } else if (this.type == "music") {
+                event.target.classList.add("darkyellow");
+             } 
+         },
+
+         unhover(event) {
+            if(this.type == "movies") {
+               event.target.classList.remove("darkpurple");
+            } else if (this.type == "tv") {
+               event.target.classList.remove("darkblue");
+            } else if (this.type == "music") {
+               event.target.classList.remove("darkyellow");
+            } 
+        },
     }
 
 }

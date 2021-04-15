@@ -101,7 +101,7 @@ export default {
                 left: this.scrollAmount,
                 behavior: 'smooth'
             });
-            this.scrollAmount += 500;
+            this.scrollAmount += 250;
          },
 
          scrollRight() {
@@ -112,7 +112,7 @@ export default {
                 left: this.scrollAmount,
                 behavior: 'smooth'
             });
-            this.scrollAmount -= 500;
+            this.scrollAmount += 250;
         },
 
         setItem(item) {

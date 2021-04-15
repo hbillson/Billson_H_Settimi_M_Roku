@@ -39,7 +39,6 @@ import Pin from "./components/PinComponent.js";
     ]
     let router = new VueRouter({
         mode: 'history',
-        // set routes
         routes
     });
     const vm = new Vue({
@@ -94,6 +93,7 @@ import Pin from "./components/PinComponent.js";
         methods: {
             // function that changes what's in the main page's box based on which side you click
             setVersion(version) {
+                this.thisData.length = 0;
                 this.currentVersion = version.toLowerCase();
                 document.querySelector(".home_title").style.display = "none";
                 //this.newView = "mediatype-select";
@@ -136,18 +136,20 @@ import Pin from "./components/PinComponent.js";
                 this.thisData.push(item);
             },
 
-            toggleSettings() {
-                this.newView = "settings";
-            },
-
             toggleProfile() {
-                this.$router.push("profile");
+                if(this.$router.currentRoute.path != "/profile") {
+                    let sidebar = document.querySelector(".sidebar")
+                    sidebar.style.backgroundColor = "#d30924";
+                    this.$router.push("profile");
+                } else {
+                    this.$router.go(-1);
+                }
+
             },
 
             updateView(event) {
                 let view = event.target.name;
-                this.thisData.length = 1;
-                let version = capitalize(view);
+                let capsView = capitalize(view);
                 function capitalize(view) {
                     if(view == "tv") {
                         let v = view.toUpperCase();
@@ -159,17 +161,21 @@ import Pin from "./components/PinComponent.js";
                         return v;
                     }
                 }
-                this.thisData.push(version);
-                this.$router.push(view);
-
-               // this.newView = view;
-
+                //this.thisData.push(version);
+                //this.$router.push(view);
                 if(view == "home") {
-                    document.querySelector(".home_title").style.display = "block";
-                    this.thisData.splice(0, this.thisData.length);
-                } else {
-                    document.querySelector(".home_title").style.display = "none";
-                }
+                    this.thisData.length = 0;
+                    this.$router.push(view);
+                } if(view == "parents" || view == "kids") {
+                    this.thisData.length = 0;
+                    this.setVersion(view);
+                } if(view == "movies" || view == "tv" || view == "music") {
+                    this.thisData.length = 1;
+                    this.setMediatype(capsView);
+                } if(view == "fifties" ||view ==  "sixties" ||view ==  "seventies" ||view ==  "eighties" ||view ==  "nineties") {
+                    this.thisData.length = 2
+                    this.setDecade(view);
+                } 
             },
 
             loadMedia(list) {
@@ -216,4 +222,5 @@ import Pin from "./components/PinComponent.js";
         next();
         }
     })
+
 })();
