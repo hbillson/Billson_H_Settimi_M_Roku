@@ -14,10 +14,13 @@ export default {
     `<div class="wrapper">
         <h1 class="home_title">WHO'S WATCHING?</h1>
         <div class="options_container">
-            <div @mouseover="hover" @mouseleave="unhover" class="options_box" id="Parents" @click="addFilter('Parents')">
+            <div @mouseover="hover('Parents')" @mouseleave="unhover('Parents')" class="options_box" id="Parents" @click="addFilter('Parents')">
                 <h2 @mouseover.stop="hover" @click="addFilter('Parents')" class="options_title">PARENTS</h2>
             </div>
-            <div @mouseover="hover" @mouseleave="unhover" class="options_box" id="Kids" @click="addFilter('Kids')">
+            <div @mouseover="hover('Kids')" @mouseleave="unhover('Kids')" class="options_box" id="Kids" @click="addFilter('Kids')">
+            <div @mouseover="hover('Kids')" @mouseleave="unhover('Kids')" class="square blue"></div>
+            <div @mouseover="hover('Kids')" @mouseleave="unhover('Kids')" class="square red"></div>
+            <div class="square purple" @mouseover="hover('Kids')" @mouseleave="unhover('Kids')"></div>
                 <h2 class="options_title" @click="addFilter('Kids')">KIDS</h2>
             </div>
         </div>
@@ -35,23 +38,34 @@ export default {
 
     methods: {
         addFilter(version) {
-            debugger;
             this.$emit("setversion", version);
          },
-         hover(event) {
-             console.log(event);
-             if(event.target.id == "Parents") {
-                event.target.classList.add("darkpurple");
-             } else if (event.target.id == "Kids") {
-                event.target.classList.add("darkyellow");
+         hover(box) {
+             console.log(box);
+             if(box == "Parents") {
+                document.getElementById(box).classList.add("darkpurple");
+             } else if (box == "Kids") {
+                document.getElementById(box).classList.add("darkyellow");
+                let blue = document.querySelector(".blue");
+                blue.classList.add("darkblue");
+                let red = document.querySelector(".red");
+                red.classList.add("darkred");
+                let purple = document.querySelector(".purple");
+                purple.classList.add("darkpurple");
              }
          },
-         unhover(event) {
-            console.log(event);
-            if(event.target.id == "Parents") {
-                event.target.classList.remove("darkpurple");
-             } else if (event.target.id == "Kids") {
-                event.target.classList.remove("darkyellow");
+         unhover(box) {
+            console.log(box);
+            if(box == "Parents") {
+                document.getElementById(box).classList.remove("darkpurple");
+             } else if (box == "Kids") {
+                document.getElementById(box).classList.remove("darkyellow");
+                let blue = document.querySelector(".blue");
+                blue.classList.remove("darkblue");
+                let red = document.querySelector(".red");
+                red.classList.remove("darkred");
+                let purple = document.querySelector(".purple");
+                purple.classList.remove("darkpurple");
              }
          }
     }

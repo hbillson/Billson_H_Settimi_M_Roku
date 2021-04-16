@@ -4,7 +4,7 @@ export default {
         <div class="login_container">
             <div class="login_contents">
                 <h3>Your favourite oldies are waiting for you!</h3>
-                <h4 v-model="message">{{message}}</h4>
+                <h4>{{message}}</h4>
 
    
                 <div class="form-container">

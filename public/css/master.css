@@ -114,6 +114,18 @@ button:hover {
   background-color: transparent;
 }
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter-to, .fade-leave {
+  opacity: 1;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 /*!
  * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -6370,6 +6382,21 @@ h2 {
   transition: 0.5s ease-in-out;
 }
 
+.sidebar .sidebar_contents .sidebar_intro {
+  margin-bottom: 4vh;
+  margin-right: 100px;
+  text-align: right;
+}
+
+.sidebar .sidebar_contents .sidebar_intro .nickname {
+  font-family: "LEMON MILK", sans-serif;
+  font-weight: 600;
+}
+
+.sidebar .sidebar_contents .sidebar_intro h4 {
+  text-decoration: underline;
+}
+
 .sidebar .sidebar_contents .sidebar_wrapper {
   height: 100%;
   padding-top: 30%;
@@ -6443,7 +6470,7 @@ h2 {
   text-align: center;
   height: auto;
   margin-top: 50vh;
-  cursor: pointer;
+  pointer-events: none;
 }
 
 .home_title {
@@ -6451,6 +6478,7 @@ h2 {
   position: absolute;
   margin-top: 10%;
   margin-left: 25%;
+  z-index: 3;
 }
 
 .options_box {
@@ -6605,6 +6633,48 @@ h2 {
   height: 100%;
   background-color: white;
   opacity: 0.8;
+}
+
+#Kids {
+  overflow: hidden;
+}
+
+#Kids .square {
+  width: 1000px;
+  height: 110vh;
+  display: block;
+  position: relative;
+  left: -550px;
+  top: 0;
+  transform: rotate(45deg);
+  z-index: 1;
+  transition: 0.3s 0s ease-in-out;
+}
+
+#Kids .blue {
+  background-color: #00c4fa;
+  width: 1100px;
+}
+
+#Kids .red {
+  position: absolute;
+  left: 1650px;
+  background-color: #ff2830;
+  top: -630px;
+}
+
+#Kids .purple {
+  position: absolute;
+  left: 1650px;
+  top: 500px;
+  background-color: #ad54cc;
+}
+
+#Kids h2 {
+  position: absolute;
+  top: 0;
+  left: 26.5vw;
+  z-index: 2;
 }
 
 .login_container {

@@ -41,6 +41,19 @@ import Pin from "./components/PinComponent.js";
         mode: 'history',
         routes
     });
+
+    var auth = false;
+    router.beforeEach((to, from, next) => {
+        // if the Vue authenticated property is set to false, then
+        // push the user back to the login screen (cuz they're not logged in)
+
+        if (auth == false && to.path !== '/login') {
+        next({name: 'login'});
+        } else {
+        next();
+        }
+    })
+
     const vm = new Vue({
         //el: "#app",
 
@@ -54,24 +67,15 @@ import Pin from "./components/PinComponent.js";
             currentDecade: {},
             thisData: [],
             sidebarLinks: [],
-            authenticated: false,
             parentauth: false,
             max_year: "0",
             min_year: "0",
             user: {}
              },
 
-            created: function() {
-            },
 
             mounted: function() {   
             console.log("Vue is mounted, trying a fetch for the initial data");
-
-           // fetchData("./dummyData.json")
-           //     .then(data => {
-          //          this.versions = data;
-           //     })
-
             let settingsIcon = document.querySelector(".fa-gear");
             let profIcon = document.querySelector(".fa-user");
             settingsIcon.addEventListener("mouseover", startSpin);
@@ -132,8 +136,14 @@ import Pin from "./components/PinComponent.js";
 
             setItem(item) {
                 //this.newView = "player";
+                if(this.thisData.length = 7) {
+                    this.thisData.length = 6;
+                    this.thisData.push(item);
+                } else {
+                    this.thisData.push(item);
+                }
                 this.$router.push("player");
-                this.thisData.push(item);
+
             },
 
             toggleProfile() {
@@ -184,7 +194,7 @@ import Pin from "./components/PinComponent.js";
 
             setUser(user) {
                 this.user = user;
-                this.authenticated = true;
+                auth = true;
                 //this.newView = "mainmenu";
                 this.$router.push('home');
             },
@@ -212,15 +222,6 @@ import Pin from "./components/PinComponent.js";
     .$mount("#app"); // also connects Vue to your wrapper in HTML
 
     // add some router security here
-    router.beforeEach((to, from, next) => {
-        // if the Vue authenticated property is set to false, then
-        // push the user back to the login screen (cuz they're not logged in)
 
-        if (vm.authenticated == false) {
-        next("/login");
-        } else {
-        next();
-        }
-    })
 
 })();

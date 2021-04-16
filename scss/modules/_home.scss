@@ -10,7 +10,7 @@
         text-align:center;
         height:auto;
         margin-top:50vh;
-        cursor:pointer;
+        pointer-events:none;
     }
 }
 
@@ -19,6 +19,7 @@
     position:absolute;
     margin-top:10%;
     margin-left:25%;
+    z-index:3;
 }
 
 .options_box {
@@ -169,4 +170,45 @@
     height:100%;
     background-color:white;
     opacity:0.8;
+}
+
+#Kids {
+    overflow:hidden;
+    .square {
+        width:1000px;
+        height:110vh;
+        display:block;
+        position:relative;
+        left:-550px;
+        top:0;
+        transform:rotate(45deg);
+        z-index:1;
+        transition:$transition;
+    }
+    .blue {
+        background-color:$blue;
+        width:1100px;
+    }
+
+
+    .red {
+        position:absolute;
+        left: 1650px;
+        background-color:$red;
+        top:-630px;
+    }
+
+
+    .purple {
+        position:absolute;
+        left: 1650px;
+        top:500px;
+        background-color:$purple;
+    }
+    h2 { 
+        position:absolute;
+        top:0;
+        left:26.5vw;
+        z-index:2;
+    }
 }

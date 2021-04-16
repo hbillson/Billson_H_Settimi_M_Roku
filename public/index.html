@@ -45,10 +45,12 @@
         
         <!-- the main homepage view, with clickable containers on each side -->
         <!-- just built with plain HTML and SCSS currently for styling purposes -->
+        <transition name="fade" mode="out-in" appear></transition>
            <router-view :key="$route.path" :parent-data="thisData" 
                 @setversion="setVersion" @setmediatype="setMediatype" 
                 @setdecade="setDecade" @loadmedia="loadMedia" @setitem="setItem"
                 @authenticated="setUser" :user="user" @parents="parentVersion"></router-view>
+            </transition>
     </section>
 </main>
     <footer>
