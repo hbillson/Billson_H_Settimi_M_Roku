@@ -13,7 +13,7 @@ export default {
         <div @mouseover="hover" @mouseleave="unhover" class="mediatype" id="Movies" @click="addFilter('Movies')"><h2 @mouseover.stop="hover" class="options_title" @click="addFilter('Movies')">Movies</h2></div>
         <div @mouseover="hover" @mouseleave="unhover" class="mediatype" id="TV" @click="addFilter('TV')"><h2 @mouseover.stop="hover" class="options_title" @click="addFilter('TV')">TV</h2></div>
         <div @mouseover="hover" @mouseleave="unhover" class="mediatype" id="Music" @click="addFilter('Music')"><h2@mouseover.stop="hover" class="options_title" @click="addFilter('Music')">Music</h2></div>
-    </div>`,
+        </div>`,
 
     computed: {
         currentComponent: function() {

@@ -1,9 +1,10 @@
 export default {
     name: "Sidebar",
 
+    props: ["user"],
+
     data() {
         return {
-        
         };
     },
 
@@ -13,7 +14,12 @@ export default {
          ☰
     </div>
         <div class="sidebar_contents">
+        <div class="sidebar_intro">
+        <h3 class="welcome">Welcome <span class="nickname">{{user.nickname}}</span>!</h3>
+        <h4 class="logout" @click="logout">Logout</h4>
+    </div>
             <div class="sidebar_wrapper">
+
                 <div class="sidebar_links">
                     <a @click="clickedLink" name="home" class="sidebar_link">HOME</a>
                     <a @click="clickedLink" name="profile" class="sidebar_link">PROFILE</a>
@@ -72,6 +78,10 @@ export default {
             sidebar.style.left = "-50vw";
             sidebar.classList.remove("open");
             this.$emit("update-view", event);
+        },
+
+        logout() {
+            window.location.reload();
         }
     }
 

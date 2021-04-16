@@ -25,6 +25,19 @@
         position:fixed;
         transition: 0.5s ease-in-out;
 
+        .sidebar_intro {
+            margin-bottom:4vh;
+            margin-right:100px;
+            text-align:right;
+
+            .nickname {
+                font-family:$title-font;
+                font-weight:600;
+            }
+            h4 {
+                text-decoration:underline;
+            }
+        }
         .sidebar_wrapper {
             height:100%;
             padding-top:30%;

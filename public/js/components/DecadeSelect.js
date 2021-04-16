@@ -50,6 +50,7 @@ export default {
             this.medialist = list;
         },
         async addFilter(decade) {
+            debugger;
             this.version = this.version.toLowerCase();
             this.type = this.type.toLowerCase();
             let url = `/api/media/${this.version}/${this.type}/${decade}`;
