@@ -1,4 +1,4 @@
-# Billson_H_Settimi_M_Roku![Roku Logo](https://www.ipoboutique.com/blog/wp-content/uploads/2017/09/Screen-Shot-2017-09-22-at-4.05.57-PM.png)
+![Roku Logo](https://www.ipoboutique.com/blog/wp-content/uploads/2017/09/Screen-Shot-2017-09-22-at-4.05.57-PM.png)
 
 # ROKU FLASHBACK: Retro Streaming App
 
