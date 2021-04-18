@@ -6,15 +6,23 @@ ROKU FLASHBACK is a web-based app built to display a variety of retro movies, TV
 
 ## Requirements
 1. Access to your system's localhost directory (or another way to test the site on a local server)
-3. A terminal window 
-4. A text editor 
-5. An up-to-date web browser
+2. A terminal window 
+3. A text editor 
+4. An up-to-date web browser
+5. Node 
+6. Express
+7. PHP 
 
-## Installation
+## Installation & Set-up
 
-- Clone the repository from GitHub into your 'www' folder (or wherever you keep your projects.) 
-- Import the SQL database (found under /includes) into PHPMyAdmin, or however you prefer to download the data, and adjust the information in "connect.php" accordingly. 
-- Open up index.html in whichever browser you prefer and enjoy!
+- Clone this repository from GitHub into the desired folder.
+- Clone the server repository into the desired folder. 
+- Change the port settings in Billson_H_Settimi_M_Roku and Billson_H_Settimi_M_Roku_Server to the 2 ports you wish to use. 
+- Import the SQL database (found under /admin) into PHPMyAdmin, or however you prefer to download the data, and adjust the information in "connect.php" accordingly. 
+- Using the Node Package Manager (or whatever you use to install node packages), install the following packages in the root directory: 'express', 'php-express', 'connect-history-api-fallback' 
+- Run the project and the server on separate ports using whichever method preferred. (During development, we used 'nodemon')
+- Open up the port address (it will direct you to the login page)
+- Either create your own credentials, or login using the test account: (username: testing, password: testing)
 
 ## Dev Roadmap & Design Notes 
 
